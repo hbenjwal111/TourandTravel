@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tour</string>
+    <string name="url">http://112.133.213.136:8085/api/android_api.php</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_personal">Home</string>
+    <string name="nav_fee">About Uttarakhand</string>
+    <string name="nav_circular">Circular</string>
+    <string name="nav_library">Area of Interest</string>
+    <string name="nav_attendance">Fedback</string>
+    <string name="nav_time">LogOut</string>
+
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">LOGIN</string>
+
+
+</resources>

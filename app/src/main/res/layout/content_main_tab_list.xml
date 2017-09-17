@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main_tab_list"
+
+    >
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/fooFragment">
+
+            <ImageView
+                android:id="@+id/movie_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sidebar_home"
+                />
+
+
+            <TextView
+
+                android:layout_marginTop="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Personal Detail"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"
+                android:background="@drawable/hyperlink_underline"
+
+                />
+
+
+            <TextView
+                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Name"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+
+            <TextView
+                android:layout_marginTop="185dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Roll Number"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_marginTop="215dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Enrollment Number"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_marginTop="245dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Date Of Admission"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_marginTop="275dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Father Name"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+
+            <TextView
+                android:layout_marginTop="305dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Mother Name"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_marginTop="335dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:text="Class"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#000"/>
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+-->
+</FrameLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="#F8F8F8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="90dp"
+                android:src="@drawable/avatar"
+                android:padding="1dp"
+                android:layout_marginTop="30dp"
+
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Photo"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textColor="@color/colorPrimary"
+               android:textSize="15dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:layout_gravity="left"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="10dp"
+                android:textStyle="normal"
+                android:typeface="sans"
+
+                android:textSize="15dp" />
+
+            </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+   <android.support.design.widget.TextInputLayout
+    android:id="@+id/input_layout_fullname"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+       android:layout_marginTop="20dp"
+       android:paddingLeft="5dp"
+       >
+
+       <EditText
+           android:textSize="@dimen/text_medium"
+           android:id="@+id/fullNameEt"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+
+           android:layout_marginTop="10dp"
+           android:textStyle="normal"
+
+           android:windowSoftInputMode="stateHidden"
+           android:gravity="left|center"
+
+
+           android:typeface="sans"
+
+           android:hint="FullName"
+           android:inputType="text"
+
+           />
+
+
+   </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp">
+
+        <EditText
+            android:textSize="@dimen/text_medium"
+            android:id="@+id/userNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+
+            android:textStyle="normal"
+
+            android:windowSoftInputMode="stateHidden"
+            android:gravity="left|center"
+
+
+            android:typeface="sans"
+
+            android:hint="UserName"
+            android:inputType="text"
+
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp">
+
+        <EditText
+            android:textSize="@dimen/text_medium"
+            android:id="@+id/emailEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+
+            android:textStyle="normal"
+
+            android:windowSoftInputMode="stateHidden"
+            android:gravity="left|center"
+
+
+            android:typeface="sans"
+
+            android:hint="Email"
+            android:inputType="text"
+
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp">
+
+        <EditText
+            android:textSize="@dimen/text_medium"
+            android:id="@+id/passwordEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+
+            android:textStyle="normal"
+
+            android:windowSoftInputMode="stateHidden"
+            android:gravity="left|center"
+
+
+            android:typeface="sans"
+
+            android:hint="Password"
+            android:inputType="text"
+
+            />
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp">
+
+            <EditText
+                android:textSize="@dimen/text_medium"
+                android:id="@+id/phoneNumberEt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+
+                android:textStyle="normal"
+
+                android:windowSoftInputMode="stateHidden"
+                android:gravity="left|center"
+
+
+                android:typeface="sans"
+                android:textColorHint="@color/cardview_dark_background"
+
+                android:hint="Phone Number"
+                android:inputType="text"
+
+                />
+
+
+
+
+
+        </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/facebook_background_color"
+                android:text="Sign Up"
+                android:textStyle="normal"
+                android:gravity="center|center_vertical|center_horizontal"
+                android:textSize="@dimen/text_large"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/white"
+                android:layout_weight="0.03" />
+
+
+
+        </LinearLayout>
+
+
+</ScrollView>
+            </LinearLayout>
+
