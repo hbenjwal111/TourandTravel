@@ -22,6 +22,7 @@ import android.widget.Button;
 import com.extect.appbase.BaseActivity;
 import com.tourandtravel.R;
 import com.tourandtravel.fragment.DashBoardFragment;
+import com.tourandtravel.fragment.HomeFragment;
 
 import java.util.Stack;
 
@@ -142,7 +143,13 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
 
         transaction.commit();
         setTitle("Avaliable Tour");
+
+
     }
+
+
+
+
 
     @Override
     public void replaceView() {

@@ -2,6 +2,7 @@ package com.tourandtravel.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,10 +12,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
 
 import com.tourandtravel.R;
-import com.tourandtravel.fragment.CityFragment;
+import com.tourandtravel.fragment.HomeFragment;
 
 /**
  * Created by himanshu on 4/15/2017.
@@ -117,7 +117,8 @@ import com.tourandtravel.fragment.CityFragment;
                     public void onClick(View v) {
 
                         AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                        CityFragment myFragment = new CityFragment();
+                       HomeFragment myFragment = new HomeFragment();
+
                         //Create a bundle to pass data, add data, set the bundle to your fragment and:
                         activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
 
