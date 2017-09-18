@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tourandtravel.R;
-import com.tourandtravel.adapter.CityAdapter;
+import com.tourandtravel.adapter.ClusterAdapter;
 
 /**
  * Created by himanshu on 18-09-2017.
@@ -27,7 +27,7 @@ public class ClusterFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        View rootView = inflater.inflate(R.layout.fragment_city, parent, false);
+        View rootView = inflater.inflate(R.layout.fragment_cluster, parent, false);
 
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
         setHasOptionsMenu(true);
@@ -42,7 +42,7 @@ public class ClusterFragment extends Fragment {
         rv.setLayoutManager(mLayoutManager2);
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         rv.setItemAnimator(new DefaultItemAnimator());
-        CityAdapter adapter = new CityAdapter(new String[]{"test one", "test two", "test three", "test four", "test five" , "test six" , "test seven"});
+        ClusterAdapter adapter = new ClusterAdapter(new String[]{"test one", "test two", "test three", "test four", "test five" , "test six" , "test seven"});
         rv.setAdapter(adapter);
 
 
