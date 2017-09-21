@@ -16,6 +16,7 @@ import com.tourandtravel.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by himanshu on 19-09-2017.
  */
@@ -34,7 +35,7 @@ public class BadrinathClusterFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, parent, false);
+        View rootView = inflater.inflate(R.layout.fragment_badrinath, parent, false);
 
 /*
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
@@ -42,7 +43,10 @@ public class BadrinathClusterFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+
+        viewPager = (ViewPager) rootView.findViewById(R.id.
+
+                pager);
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
@@ -70,11 +74,13 @@ public class BadrinathClusterFragment extends Fragment {
         return rootView;
     }
 
+
+
     private void setupViewPager(ViewPager viewPager) {
         BadrinathClusterFragment.ViewPagerAdapter adapter = new BadrinathClusterFragment.ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new ClusterFragment(), "Cluster");
-        adapter.addFragment(new ActivitiesFragment(), "Activities");
-        adapter.addFragment(new MapFragment(), "Map");
+        adapter.addFragment(new ClusterFragment(), "Main Activity");
+        adapter.addFragment(new ActivitiesFragment(), "other Activities");
+
         viewPager.setAdapter(adapter);
 
     }

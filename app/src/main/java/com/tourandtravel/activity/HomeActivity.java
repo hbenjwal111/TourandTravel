@@ -22,7 +22,6 @@ import android.widget.Button;
 import com.extect.appbase.BaseActivity;
 import com.tourandtravel.R;
 import com.tourandtravel.fragment.DashBoardFragment;
-import com.tourandtravel.fragment.HomeFragment;
 
 import java.util.Stack;
 
@@ -46,7 +45,6 @@ import org.education.R;
 import com.extect.appbase.BaseActivity;
 import com.splunk.mint.Mint;
 */
-
 
 
 public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
