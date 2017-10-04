@@ -89,6 +89,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
         }
     }
+
+
             @Override
             public int getItemCount(){
                 return mDataset.length  ;

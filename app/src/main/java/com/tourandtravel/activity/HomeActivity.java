@@ -47,12 +47,13 @@ import com.splunk.mint.Mint;
 */
 
 
-public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener  {
     public static FragmentManager fragmentManager;
     CoordinatorLayout coordinatorLayout;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
     private Stack<Fragment> fragmentStack;
+    public DrawerLayout drawer;
 
     static Button notifCount;
     static int mNotifCount = 0;
@@ -62,18 +63,13 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_home);
 
 
-
-
-
-
-
         //    fragmentStack = new Stack<Fragment>();
         // String stu_code = getIntent().getExtras().getString("stu_code");
         //  Toast.makeText(this,"hello"+stu_code,Toast.LENGTH_SHORT).show();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -92,14 +88,14 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar,  R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
 
 
 
@@ -114,15 +110,12 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         navigationView.getMenu().add(R.id.nav_msg);*/
 
 
-
         View hView = navigationView.getHeaderView(0);
 
        /* tvLoggedInName = (TextView) hView.findViewById(R.id.loggedInUserName);
 
           ivAvatarImage = (NetworkImageView) hView.findViewById(R.id.avatarNetworkImageView);
       */
-
-
 
 
         // Create fragment and give it an argument specifying the article it should show
@@ -143,7 +136,15 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         setTitle("Avaliable Tour");
 
 
+
+
+
+
+
+
     }
+
+
 
 
 
@@ -152,7 +153,11 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public void replaceView() {
 
+
     }
+
+
+
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -384,10 +389,12 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
 
 
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
+        FragmentManager mgr = getSupportFragmentManager();
+        if (mgr.getBackStackEntryCount() == 1) {
+            // No backstack to pop, so calling super
+            finish();
         } else {
-            super.onBackPressed();
+            mgr.popBackStack();
         }
     }
 
@@ -400,5 +407,12 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
     public void onFragmentInteraction(Uri uri) {
 
     }
-}
+
+
+
+
+
+    }
+
+
 

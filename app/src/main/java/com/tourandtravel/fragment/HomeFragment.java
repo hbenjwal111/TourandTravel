@@ -27,6 +27,7 @@ public class HomeFragment extends Fragment {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private  FragmentManager fragmentManager;
 
 
     public HomeFragment(){
@@ -42,6 +43,11 @@ public class HomeFragment extends Fragment {
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 */
         setHasOptionsMenu(true);
+   /*     ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
+
+
+*/
 
 
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
@@ -94,7 +100,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -122,4 +128,9 @@ public class HomeFragment extends Fragment {
             return mFragmentTitleList.get(position);
         }
     }
+
+
+
+
+
 }

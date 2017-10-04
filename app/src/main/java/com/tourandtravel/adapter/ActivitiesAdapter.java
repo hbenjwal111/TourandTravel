@@ -1,5 +1,6 @@
 package com.tourandtravel.adapter;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tourandtravel.R;
+import com.tourandtravel.fragment.BadrinathClusterFragment;
 
 /**
  * Created by himanshu on 21-09-2017.
@@ -54,6 +56,38 @@ public class ActivitiesAdapter
     @Override
     public void onBindViewHolder(ActivitiesAdapter.MyViewHolder holder, int position) {
         holder.mTextView.setText(mDataset[position]);
+
+
+        if (position == 0) {
+           /* holder.mImageView.setImageResource(R.drawable.education);*/
+          /*  holder.mLinearLayout.setBackgroundColor(Color.parseColor("#54c7fc"));*/
+              /*  holder.mTextView.setTextColor(Color.parseColor("#ffffff"));*/
+
+         /* *//*  holder.mCardView.getLayoutParams().height =*//* 300;*/
+
+               /* holder.mTextView.setAnimation(animation);
+
+                AnimationUtils.loadAnimation(mContext,
+                        R.anim.zoom_in);
+
+*/
+
+
+            holder.mCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    BadrinathClusterFragment myFragment = new BadrinathClusterFragment();
+
+                    //Create a bundle to pass data, add data, set the bundle to your fragment and:
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
+
+
+                }
+            });
+
+        }
     }
 
     @Override

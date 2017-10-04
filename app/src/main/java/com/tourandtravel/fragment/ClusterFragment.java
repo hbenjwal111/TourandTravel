@@ -2,6 +2,7 @@ package com.tourandtravel.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,8 @@ import com.tourandtravel.adapter.ClusterAdapter;
 
 public class ClusterFragment extends Fragment {
 
+    private FragmentManager fragmentManager;
+
 
     public ClusterFragment(){
 
@@ -34,7 +37,16 @@ public class ClusterFragment extends Fragment {
 
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+/*
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+*/
+
+
+
+
         rv.setLayoutManager(llm);
+
+
 
 
         rv.setHasFixedSize(true);
@@ -48,5 +60,7 @@ public class ClusterFragment extends Fragment {
 
         return rootView;
     }
+
+
 
 }

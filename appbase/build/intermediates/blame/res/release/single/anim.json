@@ -8,12 +8,12 @@
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\anim\\design_bottom_sheet_slide_in.xml",

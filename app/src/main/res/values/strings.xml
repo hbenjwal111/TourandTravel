@@ -17,6 +17,7 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">LOGIN</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

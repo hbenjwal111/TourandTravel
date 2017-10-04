@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,15 @@ public class BadrinathClusterFragment extends Fragment {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private DrawerLayout mDrawerLayout;
+
+
+    ClusterFragment fragment_two = null;
+
+    private FragmentManager fragmentManager;
+
+
+
 
 
     public BadrinathClusterFragment() {
@@ -35,15 +45,23 @@ public class BadrinathClusterFragment extends Fragment {
 
     }
 
+
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+
+
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_badrinath, parent, false);
+
+/*
+        ((DrawerLocker)getActivity()).setDrawerLocked(true);
+*/
 
 /*
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 */
         setHasOptionsMenu(true);
-
 
 
         viewPager = (ViewPager) rootView.findViewById(R.id.
@@ -55,6 +73,10 @@ public class BadrinathClusterFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
         getActivity().setTitle("Where You Want To Go");
+
+/*
+     ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+*/
 
         View root = tabLayout.getChildAt(0);
         if (root instanceof LinearLayout) {
@@ -85,8 +107,23 @@ public class BadrinathClusterFragment extends Fragment {
 */
 
 
+
         return rootView;
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -94,6 +131,8 @@ public class BadrinathClusterFragment extends Fragment {
         BadrinathClusterFragment.ViewPagerAdapter adapter = new BadrinathClusterFragment.ViewPagerAdapter(getActivity().getSupportFragmentManager());
         adapter.addFragment(new ClusterFragment(), "Main Activity");
         adapter.addFragment(new ActivitiesFragment(), "other Activities");
+        adapter.addFragment(new ActivitiesFragment(), "Hotel/Trh");
+
 
         viewPager.setAdapter(adapter);
 
@@ -118,15 +157,25 @@ public class BadrinathClusterFragment extends Fragment {
             return mFragmentList.size();
         }
 
+
         public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
 
+
+
+
         @Override
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+
+
     }
 
+
 }
+
+
+
