@@ -15,7 +15,7 @@
 
 
 
-        <LinearLayout
+        <RelativeLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,13 +36,12 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="1dp"
 
 
-            android:src="@drawable/gangotri"
-            android:layout_marginTop="10dp"
+
             />
 
         <TextView
@@ -56,13 +55,31 @@
             android:textStyle="normal"
             android:typeface="sans"
             android:id="@+id/tv_text"
-            android:layout_below="@+id/image"
+            android:layout_toRightOf="@+id/image"
             android:layout_marginLeft="12dp"
             />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="demo content"
+
+
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="normal"
+                android:layout_toRightOf="@+id/image"
+                android:typeface="sans"
+                android:id="@+id/tv_text1"
+                android:layout_below="@+id/tv_text"
+                android:layout_marginLeft="12dp"
+                />
 
 
 
-   </LinearLayout>
+
+   </RelativeLayout>
 
 </android.support.v7.widget.CardView>

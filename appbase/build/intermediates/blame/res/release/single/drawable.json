@@ -40,12 +40,12 @@
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\1eb3303a8a8b844138f428099b09217257e09d05\\output\\res\\drawable\\com_facebook_button_login_background.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable\\abc_ratingbar_material.xml"
-    },
-    {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\drawable\\com_facebook_button_background.xml",
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\6abf39a62a75889d7593f57a7a41dcd6df7a5af5\\output\\res\\drawable\\com_facebook_button_background.xml"
+    },
+    {
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_default_mtrl_shape.xml",

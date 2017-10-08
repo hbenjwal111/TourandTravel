@@ -676,7 +676,7 @@
     <string name="com_facebook_smart_login_confirmation_continue_as">Continue as <ns1:g id="user name">%1$s</ns1:g></string>
     <string name="com_facebook_smart_login_confirmation_title">Confirm Login</string>
     <string name="com_facebook_tooltip_default">You\'re in control - choose what info you want to share with apps.</string>
-    <string name="facebook_app_id">303098809884729</string>
+    <string name="facebook_app_id">2000226750253687</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">TRY TO ON/OFF INTERNET AND CHECK THE SNACKBAR DISPLAY BY BASEACTIVITY</string>
     <string name="internet_connection_Lost">Internet connection lost</string>

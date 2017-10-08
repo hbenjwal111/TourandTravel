@@ -12,12 +12,12 @@
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\layout\\messenger_button_send_blue_small.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\d3b99d7854faab1bf7589e11115e9895d37c83bb\\output\\res\\layout\\messenger_button_send_blue_small.xml"
-    },
-    {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\layout\\design_navigation_menu.xml",
         "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\layout\\messenger_button_send_blue_small.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\d3b99d7854faab1bf7589e11115e9895d37c83bb\\output\\res\\layout\\messenger_button_send_blue_small.xml"
     },
     {
         "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\release\\layout\\abc_activity_chooser_view_list_item.xml",
