@@ -1,6 +1,5 @@
 package com.tourandtravel.fragment;
 
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.tourandtravel.R;
 
@@ -58,31 +56,10 @@ public class HomeFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
         getActivity().setTitle("Where You Want To Go");
 
-        View root = tabLayout.getChildAt(0);
-        if (root instanceof LinearLayout) {
-            ((LinearLayout) root).setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-            GradientDrawable drawable = new GradientDrawable();
-            drawable.setColor(getResources().getColor(R.color.white));
-            drawable.setSize(2, 1);
-            ((LinearLayout) root).setDividerPadding(10);
-            ((LinearLayout) root).setDividerDrawable(drawable);
-        }
 
 
 
-       /* LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(llm);
 
-
-        rv.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(mLayoutManager2);
-        rv.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
-        rv.setItemAnimator(new DefaultItemAnimator());
-        CityAdapter adapter = new CityAdapter(new String[]{"test one", "test two", "test three", "test four", "test five" , "test six" , "test seven"});
-        rv.setAdapter(adapter);
-
-*/
 
 
         return rootView;
