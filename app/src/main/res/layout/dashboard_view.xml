@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-
-
-
-
-
-
-
-    <android.support.v7.widget.CardView
+<android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        card_view:cardCornerRadius="0dp"
-        card_view:cardUseCompatPadding="true"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="5dp"
         card_view:cardElevation="5dp"
 
 
-        card_view:cardPreventCornerOverlap="false"
 
-        card_view:contentPadding="0dp"
-        >
+        card_view:contentPadding="4dp"
+
+
+     >
 
 
 
@@ -43,36 +29,15 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="6dip"
-                android:layout_marginLeft="3dp"
-
-                android:contentDescription="TODO"
-                />
-
-
-
-
-            <TextView
-                android:id="@+id/tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-             android:typeface="sans"
-
-                android:textSize="@dimen/text_size_small"
-                android:textStyle="normal"
-                android:layout_margin="1dp"
-                android:gravity="center_horizontal"
+                android:layout_height="160dp"
                 android:layout_gravity="center"
-
-
+                android:scaleType="centerCrop"
 
 
                 />
+
+
 
 
 
@@ -88,4 +53,3 @@
 
 
 
-</LinearLayout>

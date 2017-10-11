@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:tabMode="fixed"
-            android:background="#54c7fc"
-            app:tabIndicatorColor="#ff0000"
+            android:background="#17B3B9"
+            app:tabIndicatorColor="#fff"
             app:tabTextColor="#fff"
 
             app:tabGravity="fill"/>
