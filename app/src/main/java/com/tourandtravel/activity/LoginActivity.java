@@ -3,13 +3,8 @@ package com.tourandtravel.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,9 +20,6 @@ import com.google.gson.Gson;
 import com.tourandtravel.R;
 
 import org.json.JSONArray;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /*import com.facebook.FacebookSdk;*/
 
@@ -79,7 +71,9 @@ public class LoginActivity extends BaseActivity {
 
         callbackManager = CallbackManager.Factory.create();
 
+/*
         generateHashKey();
+*/
 
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -167,7 +161,7 @@ public class LoginActivity extends BaseActivity {
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
-    private void generateHashKey() {
+   /* private void generateHashKey() {
         // Add code to print out the key hash
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
@@ -185,7 +179,7 @@ public class LoginActivity extends BaseActivity {
 
         }
 
-    }
+    }*/
 
     @Override
     public void replaceView() {
