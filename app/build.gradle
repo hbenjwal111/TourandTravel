@@ -18,6 +18,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories{
+        mavenCentral()
+    }
 }
 
 dependencies {
@@ -45,6 +49,6 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:9.2.0'
     compile 'com.google.android.gms:play-services:11.0.2'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-
     testCompile 'junit:junit:4.12'
+    compile project(':sdkui')
 }

@@ -135,6 +135,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
             transaction.replace(R.id.container, newFragment);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             transaction.addToBackStack(null);
             transaction.commit();
             setTitle("Personal Deatail");

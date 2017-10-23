@@ -14,9 +14,9 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.gson.Gson;
 import com.tourandtravel.R;
 
 import org.json.JSONArray;
@@ -80,23 +80,24 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                showToast(new Gson().toJson(loginResult).toString());
-
-
+                //showToast(new Gson().toJson(loginResult).toString());
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+                LoginManager.getInstance().logOut();
             }
 
             @Override
             public void onCancel() {
 
                 showToast("Cancelled.");
-
+                LoginManager.getInstance().logOut();
             }
 
             @Override
             public void onError(FacebookException error) {
 
                 showToast(error+"");
-
+                LoginManager.getInstance().logOut();
 
             }
         });
