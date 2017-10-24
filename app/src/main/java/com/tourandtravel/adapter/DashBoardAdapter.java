@@ -70,7 +70,7 @@ import java.util.List;
 
         holder.mImageView.setImageResource(constant.getImageId());
 
-        if (position == 0) {
+        /*if (position == 0) {
 
 
 
@@ -143,7 +143,7 @@ import java.util.List;
 
 
 
-        }
+        }*/
 
 
 

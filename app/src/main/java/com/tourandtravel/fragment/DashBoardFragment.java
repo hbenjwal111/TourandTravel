@@ -60,7 +60,7 @@ public class DashBoardFragment extends Fragment {
 
 
     public static final Integer[] images = { R.drawable.edu,
-            R.drawable.corp, R.drawable.leis, R.drawable.well};
+            R.drawable.well, R.drawable.leis, R.drawable.well};
 
 
 
@@ -68,7 +68,8 @@ public class DashBoardFragment extends Fragment {
     private FragmentManager fragmentManager;
 
 
-    public DashBoardFragment(){
+    public DashBoardFragment()
+    {
 
 
     }

@@ -1,5 +1,6 @@
 package com.tourandtravel.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Button;
 
 import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
+import com.tourandtravel.payumobile.PayUMainActivity;
 
 
 /**
@@ -45,38 +47,21 @@ public class BadrinathClusterFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                pyeeFrgment myFragment = new pyeeFrgment();
+                Intent openPayUMobilePayment = new Intent(getActivity(),PayUMainActivity.class);
+                startActivity(openPayUMobilePayment);
 
+               /* AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                pyeeFrgment myFragment = new pyeeFrgment();
                 //Create a bundle to pass data, add data, set the bundle to your fragment and:
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
-
-
-
+*/
             }
         });
 
 
-
-
-
-
         setHasOptionsMenu(true);
 
-
-
-
-
-
         return rootView;
-
-
-
-
-
-
 
 
 

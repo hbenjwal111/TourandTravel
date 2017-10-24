@@ -107,7 +107,7 @@ public class LoginActivity extends BaseActivity {
         PrefManager prefManager = new PrefManager(getApplicationContext());
 
         // make first time launch TRUE
-        prefManager.setFirstTimeLaunch(true);
+        //prefManager.setFirstTimeLaunch(true);
 
 
         context = getBaseContext();

@@ -176,13 +176,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
                     //Create a bundle to pass data, add data, set the bundle to your fragment and:
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
                 }
             });
-
-
-
         }
 
         else if(position == 5){
@@ -196,13 +191,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
                     //Create a bundle to pass data, add data, set the bundle to your fragment and:
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
                 }
             });
-
-
-
         }
 
         else if(position == 6){
@@ -216,12 +206,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
                     //Create a bundle to pass data, add data, set the bundle to your fragment and:
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
                 }
             });
-
-
 
         }
 
@@ -236,8 +222,6 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
                     //Create a bundle to pass data, add data, set the bundle to your fragment and:
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
                 }
             });
 

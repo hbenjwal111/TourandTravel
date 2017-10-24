@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         PrefManager prefManager = new PrefManager(getApplicationContext());
 
         // make first time launch TRUE
-        prefManager.setFirstTimeLaunch(true);
+        //prefManager.setFirstTimeLaunch(true);
 
         EditText fullName = (EditText) findViewById(R.id.fullNameEt);
         TextView textView = (TextView) findViewById(R.id.chngePhoto);

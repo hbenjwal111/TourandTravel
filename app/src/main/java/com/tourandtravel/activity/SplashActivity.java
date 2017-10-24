@@ -43,7 +43,12 @@ public class SplashActivity extends AppCompatActivity {
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
+        if (prefManager.isFirstTimeLaunch()) {
+            prefManager.setFirstTimeLaunch(false);
+
+        }
+        else
+        {
             launchHomeScreen();
             finish();
         }
@@ -129,7 +134,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
+        //prefManager.setFirstTimeLaunch(false);
         startActivity(new Intent(SplashActivity
                 .this, LoginActivity.class));
         finish();

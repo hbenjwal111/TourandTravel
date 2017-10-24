@@ -14,11 +14,13 @@ public class BaseApplication extends Application {
 
 	private static Picasso picasso;
 	public static Context context;
+	AppEnvironment appEnvironment;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		context = getApplicationContext();
+		appEnvironment = AppEnvironment.SANDBOX;
 		// Initialize the SDK before executing any other operations,
 		/*FacebookSdk.sdkInitialize(getApplicationContext());
 		AppEventsLogger.activateApp(this);*/
@@ -40,5 +42,11 @@ public class BaseApplication extends Application {
 		return picasso;
 	}
 
+	public AppEnvironment getAppEnvironment() {
+		return appEnvironment;
+	}
 
+	public void setAppEnvironment(AppEnvironment appEnvironment) {
+		this.appEnvironment = appEnvironment;
+	}
 }
