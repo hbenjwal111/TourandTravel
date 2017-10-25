@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by himanshu on 19-09-2017.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -42,9 +43,6 @@ public class HomeFragment extends Fragment {
 */
         setHasOptionsMenu(true);
    /*     ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
-
-
 */
 
 
@@ -61,9 +59,14 @@ public class HomeFragment extends Fragment {
 
 
 
-
         return rootView;
     }
+
+    @Override
+    public void setTAG(String TAG) {
+
+    }
+    int count = 0;
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
@@ -74,7 +77,15 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+
+    }
 
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -105,8 +116,6 @@ public class HomeFragment extends Fragment {
             return mFragmentTitleList.get(position);
         }
     }
-
-
 
 
 

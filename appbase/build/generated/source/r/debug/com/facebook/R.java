@@ -901,7 +901,7 @@ public final class R {
         public static int com_facebook_smart_login_confirmation_continue_as = 0x7f050027;
         public static int com_facebook_smart_login_confirmation_title = 0x7f050028;
         public static int com_facebook_tooltip_default = 0x7f050029;
-        public static int messenger_send_button_text = 0x7f050041;
+        public static int messenger_send_button_text = 0x7f050042;
         public static int search_menu_title = 0x7f05002a;
         public static int status_bar_notification_info_overflow = 0x7f05002b;
     }

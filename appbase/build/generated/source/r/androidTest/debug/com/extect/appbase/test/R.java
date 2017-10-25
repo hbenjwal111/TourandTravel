@@ -3247,8 +3247,9 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f050012;
         public static final int action_settings=0x7f050038;
         public static final int appbar_scrolling_view_behavior=0x7f050039;
-        public static final int bottom_sheet_behavior=0x7f05003a;
-        public static final int character_counter_pattern=0x7f05003b;
+        public static final int back_again=0x7f05003a;
+        public static final int bottom_sheet_behavior=0x7f05003b;
+        public static final int character_counter_pattern=0x7f05003c;
         public static final int com_facebook_device_auth_instructions=0x7f050013;
         public static final int com_facebook_image_download_unknown_error=0x7f050014;
         public static final int com_facebook_internet_permission_error_message=0x7f050015;
@@ -3272,12 +3273,12 @@ containing a value of this type.
         public static final int com_facebook_smart_login_confirmation_continue_as=0x7f050027;
         public static final int com_facebook_smart_login_confirmation_title=0x7f050028;
         public static final int com_facebook_tooltip_default=0x7f050029;
-        public static final int facebook_app_id=0x7f05003c;
-        public static final int hello_blank_fragment=0x7f05003d;
-        public static final int hello_world=0x7f05003e;
-        public static final int internet_connection_Lost=0x7f05003f;
-        public static final int internet_connection_found=0x7f050040;
-        public static final int messenger_send_button_text=0x7f050041;
+        public static final int facebook_app_id=0x7f05003d;
+        public static final int hello_blank_fragment=0x7f05003e;
+        public static final int hello_world=0x7f05003f;
+        public static final int internet_connection_Lost=0x7f050040;
+        public static final int internet_connection_found=0x7f050041;
+        public static final int messenger_send_button_text=0x7f050042;
         public static final int search_menu_title=0x7f05002a;
         public static final int status_bar_notification_info_overflow=0x7f05002b;
     }

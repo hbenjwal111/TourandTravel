@@ -1,7 +1,6 @@
 package com.tourandtravel.adapter;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.tourandtravel.R;
-import com.tourandtravel.fragment.HomeFragment;
 import com.tourandtravel.utils.ItemList;
 
 import java.util.List;
@@ -70,80 +68,7 @@ import java.util.List;
 
         holder.mImageView.setImageResource(constant.getImageId());
 
-        if (position == 0) {
 
-
-
-            holder.mCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                   HomeFragment myFragment = new HomeFragment();
-
-                    //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
-                }
-            });
-
-        } else if (position == 1) {
-
-
-            holder.mCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                  HomeFragment myFragment = new HomeFragment();
-
-                    //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
-                }
-            });
-
-        }else if(position == 2){
-
-            holder.mCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                    HomeFragment myFragment = new HomeFragment();
-
-                    //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
-                }
-            });
-
-
-
-        }
-
-        else if(position == 3){
-
-            holder.mCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                   HomeFragment myFragment = new HomeFragment();
-
-                    //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-
-                }
-            });
-
-
-
-        }
 
 
 

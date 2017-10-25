@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
         multiDexEnabled true
     }
     buildTypes {
@@ -17,6 +18,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    repositories{
+        mavenCentral()
     }
 }
 
@@ -45,6 +50,9 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:9.2.0'
     compile 'com.google.android.gms:play-services:11.0.2'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-
     testCompile 'junit:junit:4.12'
+    compile 'com.payumoney.sdkui:plug-n-play:1.0.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
 }

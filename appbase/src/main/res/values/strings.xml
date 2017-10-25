@@ -6,4 +6,6 @@
     <string name="internet_connection_found">Internet connection available</string>
     <string name="internet_connection_Lost">Internet connection lost</string>
     <string name="facebook_app_id">291432011352323</string>
+    <string name="back_again">Press back again to exit</string>
+
 </resources>

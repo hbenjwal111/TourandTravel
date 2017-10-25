@@ -1,13 +1,23 @@
 package com.extect.appbase;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -17,12 +27,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.splunk.mint.Mint;
+
+import java.util.List;
 
 import listeners.OnFragmentInteractionListener;
 import widgets.CustomTypefaceSpan;
@@ -42,6 +56,11 @@ public abstract class BaseActivity extends AppCompatActivity implements OnFragme
 //    private Typeface openSansRegular;
 //    private Typeface openSansSemibold;
     private Typeface fontAwesome;
+    public static String TAG = "DKR";
+    private Dialog dialog;
+    public static ProgressBar progressBar;
+    protected boolean isExit;
+    private ProgressDialog progressDialog;
 
     public static void showSnackBar(String msg) {
         Snackbar snackbar = Snackbar.make(coordinatiorLayout, msg, Snackbar.LENGTH_LONG);
@@ -52,6 +71,14 @@ public abstract class BaseActivity extends AppCompatActivity implements OnFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        progressBar = new ProgressBar(this);
+        progressBar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        dialog = new Dialog(this);
+        dialog.setContentView(progressBar);
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
 
         fontAwesome = Typeface.createFromAsset(getAssets(),"fonts/OpenSans-Regular.ttf");
 
@@ -59,6 +86,97 @@ public abstract class BaseActivity extends AppCompatActivity implements OnFragme
 
         Mint.initAndStartSession(this.getApplication(), "d7cde585");
         //registerNetworkReciever();
+    }
+
+    public void showProgressDialog() {
+        if (dialog != null && !dialog.isShowing() && !this.isFinishing()) {
+            dialog.show();
+        }
+    }
+
+    public void dismissProgressDialog() {
+        if (dialog != null && dialog.isShowing() && !this.isFinishing()) {
+            dialog.dismiss();
+        }
+    }
+
+
+    public boolean isOnline(boolean showWarning) {
+        boolean connected = false;
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnected()) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+                int numActiveNetwork = cm.getAllNetworks().length;
+
+                for (int i = 0; i < numActiveNetwork; i++) {
+                    if (cm.getNetworkCapabilities(cm.getAllNetworks()[i]).hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+                        connected = true;
+                        return connected;
+                    }
+                }
+            } else {
+                connected = true;
+            }
+        }
+        if (!connected && showWarning) {
+            Toast.makeText(this, "No connection", Toast.LENGTH_LONG).show();
+        }
+        return connected;
+    }
+
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        ActivityManager mngr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> taskList = mngr.getRunningTasks(10);
+        if (taskList.get(0).numActivities == 1 &&
+                taskList.get(0).topActivity.getClassName().equals(this.getClass().getName())) {
+            Log.i(TAG, "This is last activity in the stack");
+
+            if (isExit) {
+
+                finish();
+
+            } else {
+                Toast.makeText(this, getResources().getString(R.string.back_again),
+                        Toast.LENGTH_SHORT).show();
+                isExit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        isExit = false;
+                    }
+                }, 2 * 1000);
+            }
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    public void showToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+    }
+
+    public void showToast(Activity activity, String message) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
