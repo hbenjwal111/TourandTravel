@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\TourandTravel\\appbase\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+        "outputFile": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "file": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
