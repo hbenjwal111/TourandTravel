@@ -20,26 +20,19 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:src="@drawable/avatar"
-                android:padding="1dp"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"
+
+
+
+
                 android:layout_marginTop="30dp"
 
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
+                android:scaleType="center"
                 />
 
-            <TextView
-                android:id="@+id/chngePhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Change Photo"
-                android:layout_gravity="center"
-                android:layout_marginTop="7dp"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textColor="@color/colorPrimary"
-               android:textSize="15dp" />
 
 
             <TextView
@@ -240,11 +233,26 @@
                 android:textColor="@color/white"
                 android:layout_weight="0.03" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signUpTv"
+                android:layout_marginTop="20dp"
+                android:text="Already have an account? Signin here"
+
+                android:layout_gravity="center"
+
+                android:textColor="#54c7fc"
+                android:fontFamily="verdana"
+
+                android:textSize="15sp"
+                />
+
 
 
         </LinearLayout>
 
+    </ScrollView>
 
-</ScrollView>
             </LinearLayout>
 
