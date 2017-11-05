@@ -39,7 +39,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class ClusterFragment extends BaseFragment {
 
 
-
+    List<ClusterModel> listCluster;
 
     private RecyclerView recyclerView;
     private ClusterAdapter mAdapter;
@@ -99,12 +99,16 @@ public class ClusterFragment extends BaseFragment {
             public void onClick(View view, int position) {
 
 
-
-
+              ClusterModel selectedItemData = listCluster.get(position);
 
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.CHECK_IN_NAV);
+                commonActivity.putExtra("clus_description", selectedItemData.getClusDiscription());
+                commonActivity.putExtra("clus_image", selectedItemData.getClusImage());
+                commonActivity.putExtra("clus_title", selectedItemData.getClusTitle());
+                commonActivity.putExtra("clus_id", selectedItemData.getClusterId()+"");
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -156,7 +160,7 @@ public class ClusterFragment extends BaseFragment {
                 ClusterList listClusterModel = response.body();
                 if(listClusterModel.getStatus()==1){
 
-                    List<ClusterModel> listCluster = listClusterModel.getClusterModelList();
+                    listCluster = listClusterModel.getClusterModelList();
                     ClusterAdapter clusterAdapter = new ClusterAdapter(getActivity(),listCluster);
 
                     recyclerView.setAdapter(clusterAdapter);

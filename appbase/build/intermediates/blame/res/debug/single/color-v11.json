@@ -1,10 +1,10 @@
 [
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

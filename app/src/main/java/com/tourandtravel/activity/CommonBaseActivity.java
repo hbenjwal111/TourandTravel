@@ -105,8 +105,20 @@ public class CommonBaseActivity extends BaseActivity {
 
                 getmActionBar().setTitle("About Cluster");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
-            replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
+               replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
 
+
+                Commonfragment selectAddon = new Commonfragment();
+                Bundle bundle = new Bundle();
+
+
+                bundle.putString("clus_description",getIntent().getExtras().getString("clus_description"));
+                bundle.putString("clus_image",getIntent().getExtras().getString("clus_image"));
+                bundle.putString("clus_title",getIntent().getExtras().getString("clus_title"));
+                bundle.putString("clus_id",getIntent().getExtras().getString("clus_id"));
+
+                selectAddon.setArguments(bundle);
+                replaceView(R.id.fullscreen_content_controls,selectAddon,true,true);
                 break;
 
             case HOTEL:

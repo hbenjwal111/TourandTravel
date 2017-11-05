@@ -46,14 +46,7 @@ public class Commonfragment extends BaseFragment {
     private Button mButton;
     private APIService mAPIService;
 
-    private   Integer cluster_id;
-
-    private String clus_title;
-
-    private String clus_about;
-
-    private String clus_image;
-
+    String clus_description,clus_image,clus_title,clus_id;
 
     public Commonfragment() {
 
@@ -69,6 +62,13 @@ public class Commonfragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_common, parent, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
+
+         clus_description = getActivity().getIntent().getExtras().getString("clus_description");
+         clus_image = getActivity().getIntent().getExtras().getString("clus_image");
+         clus_title = getActivity().getIntent().getExtras().getString("clus_title");
+         clus_id = getActivity().getIntent().getExtras().getString("clus_id");
+
+
 
         mAPIService = ApiUtils.getAPIService();
 
@@ -121,7 +121,7 @@ public class Commonfragment extends BaseFragment {
     private void getClusterDetail(){
         showProgressDialog();
 
-        mAPIService.getClusterDetail(cluster_id).enqueue(new Callback<CommonList>() {
+        mAPIService.getClusterDetail(Integer.parseInt(clus_id)).enqueue(new Callback<CommonList>() {
             @Override
             public void onResponse(Call<CommonList> call, Response<CommonList> response) {
 
