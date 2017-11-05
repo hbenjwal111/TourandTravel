@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tourandtravel.R;
-import com.tourandtravel.utils.Constant;
+import com.tourandtravel.model.ClusterModel;
 
 import java.util.List;
 
@@ -20,7 +21,9 @@ import java.util.List;
 
 public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHolder> {
     private Context context;
-    private List<Constant> cartList;
+    private List<ClusterModel> clusterModels;
+
+    public static final String IMAGE_URL_BASE_PATH = "http://maestrotravel.co.in/";
 
 
     // Provide a reference to the views for each data item
@@ -44,9 +47,9 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ClusterAdapter(Context context, List<Constant> cartList) {
+    public ClusterAdapter(Context context, List<ClusterModel> clusterModels) {
         this.context = context;
-        this.cartList = cartList;
+        this.clusterModels = clusterModels;
     }
 
     // Create new views (invoked by the layout manager)
@@ -64,14 +67,22 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
     @Override
     public void onBindViewHolder(ClusterAdapter.MyViewHolder holder, int position) {
 
-          final Constant constant = cartList.get(position);
-        holder.mTextView.setText(constant.getTitle());
+          final ClusterModel constant = clusterModels.get(position);
+
+        String image_url = IMAGE_URL_BASE_PATH + constant.getClusImage();
+
+        Picasso.with(context)
+                .load(image_url)
+                .into(holder.mImageView);
+        holder.mTextView.setText(constant.getClusTitle());
 
 
 
-        holder.textView.setText(constant.getDesc());
 
-        holder.mImageView.setImageResource(constant.getImageId());
+        holder.textView.setText(constant.getClusDiscription());
+
+
+
 
 
 
@@ -82,7 +93,7 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return cartList.size();
+        return clusterModels.size();
     }
 
 

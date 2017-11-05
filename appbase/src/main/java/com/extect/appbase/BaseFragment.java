@@ -2,11 +2,11 @@ package com.extect.appbase;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,13 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import listeners.IOnFocusListenable;
 import listeners.OnListFragmentInteractionListener;
 import utils.UiConstants;
 
-import static android.R.attr.button;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public abstract class BaseFragment extends Fragment implements View.OnClickListener, IOnFocusListenable {
@@ -34,6 +32,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public OnListFragmentInteractionListener onListFragmentInteractionListener;
     public static ProgressDialog progressDialog;
     public static Typeface typeface;
+    private Dialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +72,20 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.mMenu = menu;
         setupActionbar();
     }
+
+    public void showProgressDialog() {
+        if (dialog != null && !dialog.isShowing() && !getActivity().isFinishing()) {
+            dialog.show();
+        }
+    }
+
+    public void dismissProgressDialog() {
+        if (dialog != null && dialog.isShowing() && !getActivity().isFinishing()) {
+            dialog.dismiss();
+        }
+    }
+
+
 
     public void requestPermissionForCamera(){
         if (getBaseActivity().shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){

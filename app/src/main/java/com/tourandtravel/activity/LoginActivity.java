@@ -111,7 +111,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
-        String user_name = emailEdt.getText().toString();
+        String username = emailEdt.getText().toString();
         String password = passEdt.getText().toString();
 
         super.onClick(view);
@@ -124,36 +124,35 @@ public class LoginActivity extends BaseActivity {
             case R.id.loginBtn:
 
 
-
-                if(user_name.trim().equals(""))
-                {
-                    Toast.makeText(getApplicationContext(), "Please enter username.", Toast.LENGTH_LONG) .show();
+                if (username.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please enter username.", Toast.LENGTH_LONG).show();
 
                     return;
 
                 }
-                if(password.trim().equals(""))
-                {
-                    Toast.makeText(getApplicationContext(), "Please enter password.", Toast.LENGTH_LONG) .show();
+                if (password.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please enter password.", Toast.LENGTH_LONG).show();
 
                     return;
 
-                }else{
+                } else {
 
-                    sendLogin(emailEdt.getText().toString(),passEdt.getText().toString(), AppPreferences.getPrefs(LoginActivity.this).getStringValue(AppPreferences.FIREBASE_ID));
+
+
+                    sendLogin(emailEdt.getText().toString(),passEdt.getText().toString());
+
 
                 }
-
-
 
 
                 break;
         }
     }
 
-    public void sendLogin(String user_name, String password,String token) {
+    public void sendLogin(String username, String password) {
         showProgressDialog();
-        mAPIService.loginPost(user_name, password,token).enqueue(new Callback<CustomerLoginModel>() {
+
+        mAPIService.loginPost(username, password).enqueue(new Callback<CustomerLoginModel>() {
             @Override
             public void onResponse(Call<CustomerLoginModel> call, Response<CustomerLoginModel> response) {
                 dismissProgressDialog();

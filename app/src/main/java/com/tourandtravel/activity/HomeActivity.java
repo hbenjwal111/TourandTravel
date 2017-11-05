@@ -96,7 +96,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         transaction.addToBackStack(null);
 
         transaction.commit();
-        setTitle("Avaliable Tour");
+
 
 
 
@@ -135,10 +135,10 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
             transaction.replace(R.id.container, newFragment);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
             transaction.addToBackStack(null);
             transaction.commit();
-            setTitle("Personal Deatail");
+
 
 
 
@@ -152,7 +152,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             transaction.replace(R.id.container, newFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-            setTitle("Fee Detail");
+
 
             // Toast.makeText(getApplicationContext(),"Train Stations",Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_about) {
@@ -163,7 +163,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             transaction.replace(R.id.container, newFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-            setTitle("Circular");
+
             // Toast.makeText(getApplicationContext(),"Train Schedule",Toast.LENGTH_LONG).show();
         }  else if (id == R.id.nav_feed) {
 
@@ -174,7 +174,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             transaction.replace(R.id.container, newFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-            setTitle("Library");
+
 
 
 

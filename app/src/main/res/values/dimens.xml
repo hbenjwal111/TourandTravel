@@ -34,7 +34,6 @@
     <dimen name="cardUseCompatPadding">5dp</dimen>
 
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="dimen_3dp">3dp</dimen>
 
 
 </resources>

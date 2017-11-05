@@ -1,98 +1,98 @@
 [
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_fade_out.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_out_left.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_out_left.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_fab_out.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_bottom_sheet_slide_in.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_in_left.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_in_left.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_slide_in_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_in_right.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_in_right.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_snackbar_in.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_snackbar_out.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_popup_enter.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_fab_in.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_slide_out_top.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_out_bottom.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_out_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_bottom.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_in_bottom.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_in_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_top.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_in_top.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_fab_in.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_left.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_out_left.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_snackbar_in.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_bottom.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_fab_out.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_snackbar_out.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_slide_out_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_out_right.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_slide_in_top.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_out_right.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_out_right.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_popup_exit.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_in_right.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/anim/design_bottom_sheet_slide_out.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_fade_in.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_left.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_in_left.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_out_top.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_out_top.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_top.xml",
+        "source": "E:\\TourandTravel\\appbase\\src\\main\\res\\anim\\slide_out_top.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/slide_in_top.xml",
-        "source": "/Users/LuckyRana/Downloads/TourandTravel/appbase/src/main/res/anim/slide_in_top.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     }
 ]

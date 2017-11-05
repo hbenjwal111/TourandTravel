@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    card_view:contentPadding="5dp"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardMaxElevation="3dp"
+    >
+
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative"
+
+
+
+        android:orientation="horizontal"
+        >
+
+
+
+
+
+
+
+
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="1dp"
+
+
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:id="@+id/tv_text"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginLeft="12dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="normal"
+            android:layout_toRightOf="@+id/image"
+            android:typeface="sans"
+            android:id="@+id/tv_text1"
+            android:layout_below="@+id/tv_text"
+            android:layout_marginLeft="12dp"
+            />
+
+
+
+
+        <LinearLayout
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+
+            android:layout_height="wrap_content">
+
+
+
+
+
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:id="@+id/choose"
+                android:gravity="center"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/top_bar_gradient"
+
+                android:text="Choose Room"
+
+                android:textColor="@color/white"
+                android:typeface="sans"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="normal"
+
+                />
+
+            <View
+                android:layout_below="@+id/choose"
+                android:layout_marginTop="0dp"
+                android:background="@color/white"
+                android:layout_height=".5dp"
+                android:layout_width="match_parent"/>
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>
+
+

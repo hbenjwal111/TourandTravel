@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/layout-v21/notification_action.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\layout-v21\\notification_action.xml"
     }
 ]

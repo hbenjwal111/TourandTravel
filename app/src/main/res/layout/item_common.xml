@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="0dp"
+    card_view:contentPadding="0dp"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardMaxElevation="0dp"
+    >
+
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+
+
+
+
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+
+            android:id="@+id/place_image"
+            />
+
+
+
+        <LinearLayout
+            android:layout_below="@+id/place_image"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:paddingBottom="100dp"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <View
+                android:layout_marginTop="0dp"
+                android:background="@color/dark_gray"
+                android:layout_height=".5dp"
+                android:layout_width="match_parent"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+
+                    android:paddingLeft="25dp"
+                    android:text=" "
+                    android:id="@+id/about"
+
+                    android:textColor="@color/black"
+                    android:typeface="sans"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="normal"
+
+                    />
+            </LinearLayout>
+
+
+
+            <View
+                android:background="@color/dark_gray"
+                android:layout_height=".5dp"
+                android:layout_width="match_parent"/>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/llButtons1"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="normal"
+                    android:text=""
+                    android:id="@+id/tv_text1"
+
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:gravity="left|center_vertical|center_horizontal"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.5"
+
+                    android:typeface="sans"
+                    />
+
+
+
+
+            </LinearLayout>
+            </ScrollView>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+   </RelativeLayout>
+
+    </android.support.v7.widget.CardView>

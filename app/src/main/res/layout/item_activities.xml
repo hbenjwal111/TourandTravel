@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="demo content"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_small"
             android:textStyle="normal"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="demo content"
+            android:text=""
 
 
             android:textColor="@color/black"

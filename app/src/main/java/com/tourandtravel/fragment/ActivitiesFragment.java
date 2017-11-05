@@ -1,7 +1,6 @@
 package com.tourandtravel.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
 import com.tourandtravel.adapter.ActivitiesAdapter;
 import com.tourandtravel.utils.Constant;
@@ -24,7 +24,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  * Created by himanshu on 18-09-2017.
  */
 
-public class ActivitiesFragment  extends Fragment {
+public class ActivitiesFragment  extends BaseFragment {
 
 
     private RecyclerView recyclerView;
@@ -87,7 +87,20 @@ public class ActivitiesFragment  extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void setTAG(String TAG) {
+
+    }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+
+    }
 }
 

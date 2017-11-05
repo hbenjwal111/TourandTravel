@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tourandtravel.R;
+import com.tourandtravel.api.AppPreferences;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -135,8 +136,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         //prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(SplashActivity
-                .this, LoginActivity.class));
+        if(AppPreferences.getPrefs(SplashActivity.this).getBooleanValue(AppPreferences.IS_LOGIN))
+            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+        else
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         finish();
     }
 

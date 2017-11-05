@@ -14,7 +14,13 @@ import com.extect.appbase.BaseActivity;
 import com.extect.appbase.BaseFragment;
 import com.splunk.mint.Mint;
 import com.tourandtravel.R;
+import com.tourandtravel.fragment.BookFragment;
+import com.tourandtravel.fragment.CommonHotelFragment;
+import com.tourandtravel.fragment.Commonfragment;
 import com.tourandtravel.fragment.HomeFragment;
+import com.tourandtravel.fragment.ReviewBooking;
+import com.tourandtravel.fragment.RoomTypeFragment;
+import com.tourandtravel.fragment.TravellerDetails;
 
 import listeners.IBackPressedListner;
 import shared.BaseFlyContext;
@@ -33,6 +39,16 @@ public class CommonBaseActivity extends BaseActivity {
     public final static int CLUSTER = 0;
 
     public final static int CHECK_IN_NAV = 1;
+
+    public final static int HOTEL = 2;
+
+    public final static int ROOM = 3;
+
+    public final static int BOOK = 4;
+
+    public final static int REVIEW = 5;
+
+    public final static int TRAVELLER = 6;
 
 
 
@@ -79,7 +95,7 @@ public class CommonBaseActivity extends BaseActivity {
                 replaceView(R.id.fullscreen_content_controls, checkInFragment, true, true);
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
 */
-                getmActionBar().setTitle("Where you want to go");
+                getmActionBar().setTitle("Maestro Travel");
                 replaceView(R.id.fullscreen_content_controls, new HomeFragment(),true,true);
 
                 break;
@@ -87,7 +103,59 @@ public class CommonBaseActivity extends BaseActivity {
 
             case CHECK_IN_NAV:
 
+                getmActionBar().setTitle("About Cluster");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+            replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
+
                 break;
+
+            case HOTEL:
+
+                getmActionBar().setTitle("Hotels");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+                replaceView(R.id.fullscreen_content_controls, new CommonHotelFragment(),true,true);
+
+                break;
+
+            case ROOM:
+
+                getmActionBar().setTitle("Choose Room");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+                replaceView(R.id.fullscreen_content_controls, new RoomTypeFragment(),true,true);
+
+
+              break;
+
+            case BOOK:
+
+                getmActionBar().setTitle("Book");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+                replaceView(R.id.fullscreen_content_controls, new BookFragment(),true,true);
+
+
+
+
+break;
+
+            case REVIEW:
+
+                getmActionBar().setTitle("Review Booking");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+                replaceView(R.id.fullscreen_content_controls, new ReviewBooking(),true,true);
+
+
+
+
+            break;
+
+            case TRAVELLER:
+
+                getmActionBar().setTitle("Traveller Details");
+                getmActionBar().setDisplayHomeAsUpEnabled(true);
+                replaceView(R.id.fullscreen_content_controls, new TravellerDetails(),true,true);
+
+
+
 
            /* case 99:
                 *//**//*SelectAddOnsFragment selectAddon = new SelectAddOnsFragment();

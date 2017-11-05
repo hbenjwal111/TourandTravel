@@ -52,7 +52,6 @@ public class HomeFragment extends BaseFragment {
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
 
         tabLayout.setupWithViewPager(viewPager);
-        getActivity().setTitle("Where You Want To Go");
 
 
 
@@ -73,6 +72,7 @@ public class HomeFragment extends BaseFragment {
         adapter.addFragment(new ClusterFragment(),"Cluster");
         adapter.addFragment(new ActivitiesFragment(),"Activities");
         adapter.addFragment(new MapFragment(),"Map");
+        adapter.addFragment(new NearByFragment(),"NearMe");
         viewPager.setAdapter(adapter);
 
     }

@@ -44,6 +44,11 @@
         <item name="colorControlActivated">#666666</item>
 
     </style>
+
+    <style name="myApp" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <item name="android:background">#fff</item>
+    </style>
     <style name="Theme.MyApp.ActionBar" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <!-- remove shadow below action bar -->
         <!-- <item name="android:elevation">0dp</item> -->

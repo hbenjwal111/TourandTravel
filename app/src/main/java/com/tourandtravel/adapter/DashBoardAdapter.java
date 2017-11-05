@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tourandtravel.R;
 import com.tourandtravel.utils.ItemList;
@@ -33,6 +34,7 @@ import java.util.List;
         public CardView mCardView;
 
         public ImageView mImageView;
+        public TextView mTextView;
 
         public MyViewHolder(View v) {
             super(v);
@@ -40,6 +42,7 @@ import java.util.List;
             mCardView = (CardView) v.findViewById(R.id.card_view);
 
             mImageView = (ImageView)v.findViewById(R.id.imageView);
+            mTextView = (TextView)v.findViewById(R.id.mTextView);
         }
     }
 
@@ -68,11 +71,14 @@ import java.util.List;
 
         holder.mImageView.setImageResource(constant.getImageId());
 
+        holder.mTextView.setText(constant.getTitle());
 
 
 
 
-        }
+
+
+    }
 
 
 

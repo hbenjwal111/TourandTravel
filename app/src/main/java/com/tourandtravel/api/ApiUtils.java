@@ -7,7 +7,7 @@ public class ApiUtils {
 
     private ApiUtils() {}
 
-    public static final String BASE_URL = "http://developmentencomplus.online/uruku/src/api/";
+    public static final String BASE_URL = "http://maestrotravel.co.in/api/";
 
     public static APIService getAPIService() {
         return RetrofitClient.getClient(BASE_URL).create(APIService.class);

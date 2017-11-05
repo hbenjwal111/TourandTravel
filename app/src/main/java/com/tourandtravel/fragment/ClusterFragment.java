@@ -1,8 +1,8 @@
 package com.tourandtravel.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -13,13 +13,22 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
+import com.tourandtravel.activity.CommonBaseActivity;
 import com.tourandtravel.adapter.ClusterAdapter;
-import com.tourandtravel.utils.Constant;
+import com.tourandtravel.api.APIService;
+import com.tourandtravel.api.ApiUtils;
+import com.tourandtravel.model.ClusterList;
+import com.tourandtravel.model.ClusterModel;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -27,57 +36,23 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  * Created by himanshu on 18-09-2017.
  */
 
-public class ClusterFragment extends Fragment {
+public class ClusterFragment extends BaseFragment {
+
+
 
 
     private RecyclerView recyclerView;
-    private List<Constant> cartList;
     private ClusterAdapter mAdapter;
+    private APIService mAPIService;
 
-
-    public static final String[] titles = new String[] {
-            "Badrinath",
-            "Gangotri", "Yamonotri", "Kedarnath",
-            "Chakrata","Kausani"," Chamoli",
-            "Dehradun","Dhanaulti","Haridwar",
-
-            "HemkundShahib","Karanprayag"};
-
-    public static final String[] descriptions = new String[] {
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-            "It is an aggregate accessory fruit",
-
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant"
-
-             };
-
-    public static final Integer[] images = {
-            R.drawable.badinath,
-            R.drawable.gangotri,
-            R.drawable.yamunotri,
-            R.drawable.kedarnath,
-
-            R.drawable.chkrt,
-            R.drawable.ksuni
-           , R.drawable.chmoli,
-            R.drawable.dehrdun,
-
-            R.drawable.dhnulti,
-            R.drawable.hridwr,
-            R.drawable.hemkund,
-            R.drawable.kedarnath};
 
     private FragmentManager fragmentManager;
+
+
+   private  Integer cluster_id;
+    private   String clus_discription;
+   private String clus_image;
+    private  String clus_title;
 
     public ClusterFragment(){
     }
@@ -87,17 +62,15 @@ public class ClusterFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_cluster, parent, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
+
+        mAPIService = ApiUtils.getAPIService();
+
+
         setHasOptionsMenu(true);
 
-        cartList = new ArrayList<Constant>();
-        for (int i = 0; i < titles.length; i++) {
-            Constant item = new Constant(images[i], titles[i], descriptions[i]);
-            cartList.add(item);
-        }
 
-       /* cartList = new ArrayList<>();*/
 
-        mAdapter = new ClusterAdapter(getActivity(), cartList);
+
 
 
 
@@ -108,33 +81,99 @@ public class ClusterFragment extends Fragment {
 
 
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new DashBoardFragment.RecyclerTouchListener(getActivity(), recyclerView, new DashBoardFragment.ClickListener() {
+
+
+        recyclerView.addOnItemTouchListener(new ClusterFragment.RecyclerTouchListener(getActivity(), recyclerView, new ClusterFragment.ClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                // SelectedPosition = position;
-                // HomeFragment myFragment = new HomeFragment();
-
-                //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, myFragment).addToBackStack(null).commit();
-
-                /*Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
-                commonActivity.putExtra("flowType", CommonBaseActivity.CLUSTER);
+                Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
+                commonActivity.putExtra("flowType", CommonBaseActivity.CHECK_IN_NAV);
                 startActivity(commonActivity);
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);*/
-            }
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+
+
+
+                         }
 
             @Override
             public void onLongClick(View view, int position) {
 
             }
+
         }));
+        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+
+
+
+        getAllCluster();
+
+
+
+
         return rootView;
+
+
+
+
+
+    }
+
+
+    private void getAllCluster(){
+        showProgressDialog();
+
+        mAPIService.getAllCluster(cluster_id,clus_title,clus_discription,clus_image).enqueue(new Callback<ClusterList>() {
+            @Override
+            public void onResponse(Call<ClusterList> call, Response<ClusterList> response) {
+
+                ClusterList listClusterModel = response.body();
+                if(listClusterModel.getStatus()==1){
+                    List<ClusterModel> listCluster = listClusterModel.getClusterModelList();
+                    ClusterAdapter clusterAdapter = new ClusterAdapter(getActivity(),listCluster);
+
+                    recyclerView.setAdapter(clusterAdapter);
+                    dismissProgressDialog();
+                }else{
+                   dismissProgressDialog();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ClusterList> call, Throwable t) {
+
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+               dismissProgressDialog();
+
+
+            }
+        });
+
+
+
+    }
+
+
+    @Override
+    public void setTAG(String TAG) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+
     }
 
 
@@ -147,9 +186,9 @@ public class ClusterFragment extends Fragment {
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
-        private DashBoardFragment.ClickListener clickListener;
+        private ClusterFragment.ClickListener clickListener;
 
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final DashBoardFragment.ClickListener clickListener) {
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClusterFragment.ClickListener clickListener) {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override

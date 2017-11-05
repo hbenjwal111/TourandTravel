@@ -56,7 +56,10 @@ public class DashBoardFragment extends Fragment {
     final long PERIOD_MS = 3000; // time in milliseconds between successive task executions.
 
 
-
+    public static final String[] titles = new String[] {
+            "Education",
+            "Corporate", "Leisure", "Wellness"
+            };
 
 
     public static final Integer[] images = { R.drawable.edu,
@@ -112,7 +115,7 @@ public class DashBoardFragment extends Fragment {
 
         listItem = new ArrayList<ItemList>();
         for (int i = 0; i < images.length; i++) {
-            ItemList item = new ItemList(images[i]);
+            ItemList item = new ItemList(images[i],titles[i]);
             listItem.add(item);
         }
 

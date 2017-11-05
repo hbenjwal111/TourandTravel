@@ -93,6 +93,7 @@ public class PayUMainActivity extends com.extect.appbase.BaseActivity implements
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setDisplayShowTitleEnabled(true);
+
             getSupportActionBar().setTitle(getResources().getString(R.string.user_details));
 /*
             getSupportActionBar().setLogo(R.drawable.notification_button);
@@ -137,7 +138,7 @@ public class PayUMainActivity extends com.extect.appbase.BaseActivity implements
 
         initListeners();
 
-        //Set Up SharedPref
+        //Set Up SharedPref      
         setUpUserDetails();
 
         if (settings.getBoolean("is_prod_env", false)) {

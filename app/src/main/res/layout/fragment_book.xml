@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:background="@color/cb_grey">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimen_5dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/dimen_5dp">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:padding="@dimen/dimen_10dp"
+            app:cardBackgroundColor="@color/light_white"
+            app:cardCornerRadius="@dimen/dimen_3dp"
+            app:cardElevation="@dimen/dimen_5dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingLeft="@dimen/dimen_15dp"
+            app:contentPaddingRight="@dimen/dimen_15dp"
+            app:contentPaddingTop="@dimen/dimen_10dp"
+            card_view:cardElevation="@dimen/dimen_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aadibdri"
+                    android:textColor="@color/payumoney_black"
+                    android:textSize="@dimen/dimen_18sp" />
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:padding="@dimen/dimen_10dp"
+            app:cardBackgroundColor="@color/light_white"
+            app:cardCornerRadius="@dimen/dimen_3dp"
+            app:cardElevation="@dimen/dimen_5dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingLeft="@dimen/dimen_15dp"
+            app:contentPaddingRight="@dimen/dimen_15dp"
+            app:contentPaddingTop="@dimen/dimen_10dp"
+            card_view:cardElevation="@dimen/dimen_5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+
+                    <TextView
+                        android:id="@+id/checkIn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text="CheckIn"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+                        android:gravity="center"
+
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_1dp"
+                        android:layout_height="match_parent"
+                        android:background="#c0c0c0"/>
+
+
+
+
+                    <TextView
+                        android:id="@+id/checkOut"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text="CheckOut"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+
+
+                        android:gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_30dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+
+                    <TextView
+                        android:id="@+id/fromDtae"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text=""
+                        android:editable="false"
+                        android:inputType="date"
+
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+                        android:gravity="center"
+
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_1dp"
+                        android:layout_height="match_parent"
+                        android:background="#c0c0c0"/>
+
+
+
+                    <TextView
+                        android:id="@+id/toDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text=""
+                        android:inputType="date"
+                        android:editable="false"
+
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+
+                        android:gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:padding="@dimen/dimen_10dp"
+            app:cardBackgroundColor="@color/light_white"
+            app:cardCornerRadius="@dimen/dimen_3dp"
+            app:cardElevation="@dimen/dimen_5dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingLeft="@dimen/dimen_15dp"
+            app:contentPaddingRight="@dimen/dimen_15dp"
+            app:contentPaddingTop="@dimen/dimen_10dp"
+            card_view:cardElevation="@dimen/dimen_5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+
+                    <TextView
+                        android:id="@+id/room"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text="Number Of Room"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+                        android:gravity="center"
+
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_1dp"
+                        android:layout_height="match_parent"
+                        android:background="#c0c0c0"/>
+
+
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text=""
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+
+
+                        android:gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:padding="@dimen/dimen_10dp"
+            app:cardBackgroundColor="@color/light_white"
+            app:cardCornerRadius="@dimen/dimen_3dp"
+            app:cardElevation="@dimen/dimen_5dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingLeft="@dimen/dimen_15dp"
+            app:contentPaddingRight="@dimen/dimen_15dp"
+            app:contentPaddingTop="@dimen/dimen_10dp"
+            card_view:cardElevation="@dimen/dimen_5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+
+                    <TextView
+                        android:id="@+id/person"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text="Number Of Person"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+                        android:gravity="center"
+
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_1dp"
+                        android:layout_height="match_parent"
+                        android:background="#c0c0c0"/>
+
+
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollHorizontally="false"
+                        android:text=""
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:typeface="sans"
+
+
+                        android:gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/button_previous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:background="@drawable/top_bar_gradient"
+            android:textStyle="normal"
+            android:typeface="sans"
+
+            android:textSize="@dimen/text_large"
+            android:textColor="#fff"
+
+            android:text="Get Set Go" />
+
+
+
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
