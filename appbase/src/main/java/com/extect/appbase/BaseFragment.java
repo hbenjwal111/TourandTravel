@@ -34,6 +34,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public static Typeface typeface;
     private Dialog dialog;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

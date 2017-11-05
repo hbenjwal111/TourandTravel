@@ -54,6 +54,8 @@ public class ClusterFragment extends BaseFragment {
    private String clus_image;
     private  String clus_title;
 
+
+
     public ClusterFragment(){
     }
 
@@ -61,9 +63,13 @@ public class ClusterFragment extends BaseFragment {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_cluster, parent, false);
 
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 
         mAPIService = ApiUtils.getAPIService();
+
+
 
 
         setHasOptionsMenu(true);
@@ -86,8 +92,16 @@ public class ClusterFragment extends BaseFragment {
 
 
         recyclerView.addOnItemTouchListener(new ClusterFragment.RecyclerTouchListener(getActivity(), recyclerView, new ClusterFragment.ClickListener() {
+
+
+
             @Override
             public void onClick(View view, int position) {
+
+
+
+
+
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.CHECK_IN_NAV);
@@ -117,6 +131,7 @@ public class ClusterFragment extends BaseFragment {
 
 
 
+
         return rootView;
 
 
@@ -127,14 +142,20 @@ public class ClusterFragment extends BaseFragment {
 
 
     private void getAllCluster(){
+
         showProgressDialog();
 
         mAPIService.getAllCluster(cluster_id,clus_title,clus_discription,clus_image).enqueue(new Callback<ClusterList>() {
             @Override
             public void onResponse(Call<ClusterList> call, Response<ClusterList> response) {
 
+
+
+
+
                 ClusterList listClusterModel = response.body();
                 if(listClusterModel.getStatus()==1){
+
                     List<ClusterModel> listCluster = listClusterModel.getClusterModelList();
                     ClusterAdapter clusterAdapter = new ClusterAdapter(getActivity(),listCluster);
 
@@ -190,6 +211,7 @@ public class ClusterFragment extends BaseFragment {
 
         public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClusterFragment.ClickListener clickListener) {
             this.clickListener = clickListener;
+
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onSingleTapUp(MotionEvent e) {
@@ -200,7 +222,10 @@ public class ClusterFragment extends BaseFragment {
                 public void onLongPress(MotionEvent e) {
                     View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                     if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child));
+
+
+
                     }
                 }
             });
@@ -210,8 +235,10 @@ public class ClusterFragment extends BaseFragment {
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
             View child = rv.findChildViewUnder(e.getX(), e.getY());
+
             if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
+
             }
             return false;
         }

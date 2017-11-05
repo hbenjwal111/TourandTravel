@@ -23,6 +23,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
     private Context context;
     private List<ClusterModel> clusterModels;
 
+    public int cluster_id;
+
     public static final String IMAGE_URL_BASE_PATH = "http://maestrotravel.co.in/";
 
 
@@ -35,6 +37,8 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
         public TextView mTextView;
         public TextView textView;
         public ImageView mImageView;
+
+
 
         public MyViewHolder(View v) {
             super(v);
@@ -67,9 +71,16 @@ public class ClusterAdapter extends RecyclerView.Adapter<ClusterAdapter.MyViewHo
     @Override
     public void onBindViewHolder(ClusterAdapter.MyViewHolder holder, int position) {
 
-          final ClusterModel constant = clusterModels.get(position);
+          final ClusterModel constant = clusterModels.get(cluster_id+position);
+
+
+
+
+
+
 
         String image_url = IMAGE_URL_BASE_PATH + constant.getClusImage();
+
 
         Picasso.with(context)
                 .load(image_url)

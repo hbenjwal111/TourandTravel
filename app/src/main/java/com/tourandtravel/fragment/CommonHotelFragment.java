@@ -49,6 +49,10 @@ public class CommonHotelFragment  extends BaseFragment {
 
     private   Integer cluster_id;
 
+    private Integer hotel_id;
+
+
+
 
 
 

@@ -63,4 +63,5 @@ public interface APIService {
 
     Call<HotelList> getHotelList(
             @Field("cluster_id") Integer cluster_id);
+
 }

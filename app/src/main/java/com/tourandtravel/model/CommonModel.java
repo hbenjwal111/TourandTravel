@@ -14,7 +14,7 @@ public class CommonModel {
     @Expose
     private Integer cluster_id;
 
-   /* @SerializedName("clus_title")
+    @SerializedName("clus_title")
     @Expose
 
     private String clus_title;
@@ -28,7 +28,7 @@ public class CommonModel {
     @Expose
 
     private String clus_image;
-*/
+
 
 
     public  CommonModel(){
@@ -36,11 +36,11 @@ public class CommonModel {
 
     }
 
-    public CommonModel(int cluster_id/*, String clus_title, String clus_about,String clus_image*/) {
+    public CommonModel(int cluster_id, String clus_title, String clus_about,String clus_image) {
         this.cluster_id = cluster_id;
-       /* this.clus_title =clus_title;
+        this.clus_title =clus_title;
         this.clus_about=clus_about;
-        this.clus_image=clus_image;*/
+        this.clus_image=clus_image;
 
 
     }
@@ -54,7 +54,7 @@ public class CommonModel {
         this.cluster_id = cluster_id;
     }
 
-  /*  public String getClusTitle(){
+   public String getClusTitle(){
         return clus_title;
     }
 
@@ -83,7 +83,7 @@ public class CommonModel {
         this.clus_image = clus_image;
     }
 
-*/
+
 
 
 

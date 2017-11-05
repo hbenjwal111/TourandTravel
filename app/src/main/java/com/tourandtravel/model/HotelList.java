@@ -11,7 +11,7 @@ import java.util.List;
 public class HotelList  {
 
     @SerializedName("hotel")
-    private List<CommonHotelModel> commonHotelModelList;
+    private List<CommonHotelModel> commonHotelModelList = null;
 
     /*@SerializedName("hotel_id")
     @Expose

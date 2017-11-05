@@ -82,6 +82,8 @@ public class Commonfragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
+
+
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.HOTEL);
                 startActivity(commonActivity);

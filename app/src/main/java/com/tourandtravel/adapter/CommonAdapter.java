@@ -69,18 +69,18 @@ public class CommonAdapter  extends RecyclerView.Adapter<CommonAdapter.MyViewHol
 
         final CommonModel custers = commonModels.get(position);
 
-        String image_url = IMAGE_URL_BASE_PATH + custers.getClusterId();
+        String image_url = IMAGE_URL_BASE_PATH + custers.getClusImage();
 
         Picasso.with(context)
                 .load(image_url)
                 .into(holder.mImageView);
 
-        holder.titleCluster.setText(custers.getClusterId());
+        holder.titleCluster.setText(custers.getClusTitle());
 
 
 
 
-        holder.mTextView.setText(custers.getClusterId());
+        holder.mTextView.setText(custers.getClus_about());
 
 
 

@@ -158,6 +158,8 @@ public class LoginActivity extends BaseActivity {
                 dismissProgressDialog();
                 if (response.isSuccessful()) {
                     if(response.body().getStatus() == 1){
+
+
                         Toast.makeText(LoginActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         AppPreferences.getPrefs(LoginActivity.this).setBooleanValue(AppPreferences.IS_LOGIN,true);
                         AppPreferences.getPrefs(LoginActivity.this).setStringValue(AppPreferences.USER_ID,response.body().getUserId());
