@@ -53,7 +53,7 @@ public class CommonHotelFragment  extends BaseFragment {
 
 
 
-
+    String clus_id;
 
 
     private FragmentManager fragmentManager;
@@ -64,7 +64,7 @@ public class CommonHotelFragment  extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_common_hotel, parent, false);
-
+         clus_id = getActivity().getIntent().getExtras().getString("clus_id");
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 
         mAPIService = ApiUtils.getAPIService();
@@ -120,7 +120,7 @@ public class CommonHotelFragment  extends BaseFragment {
     private void getHotelList(){
         showProgressDialog();
 
-        mAPIService.getHotelList(cluster_id).enqueue(new Callback<HotelList>() {
+        mAPIService.getHotelList(Integer.parseInt(clus_id)).enqueue(new Callback<HotelList>() {
             @Override
             public void onResponse(Call<HotelList> call, Response<HotelList> response) {
 

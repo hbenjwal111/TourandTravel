@@ -50,7 +50,6 @@ public class Commonfragment extends BaseFragment {
 
     public Commonfragment() {
 
-
     }
 
 
@@ -61,13 +60,13 @@ public class Commonfragment extends BaseFragment {
 
         View rootView = inflater.inflate(R.layout.fragment_common, parent, false);
 
+        clus_description = getActivity().getIntent().getExtras().getString("clus_description");
+        clus_image = getActivity().getIntent().getExtras().getString("clus_image");
+        clus_title = getActivity().getIntent().getExtras().getString("clus_title");
+        clus_id = getActivity().getIntent().getExtras().getString("clus_id");
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
-
-         clus_description = getActivity().getIntent().getExtras().getString("clus_description");
-         clus_image = getActivity().getIntent().getExtras().getString("clus_image");
-         clus_title = getActivity().getIntent().getExtras().getString("clus_title");
-         clus_id = getActivity().getIntent().getExtras().getString("clus_id");
-
 
 
         mAPIService = ApiUtils.getAPIService();
@@ -85,7 +84,10 @@ public class Commonfragment extends BaseFragment {
 
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
+
                 commonActivity.putExtra("flowType", CommonBaseActivity.HOTEL);
+                commonActivity.putExtra("clus_id", clus_id);
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -96,16 +98,9 @@ public class Commonfragment extends BaseFragment {
 
         setHasOptionsMenu(true);
 
-
-
-
-
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         getClusterDetail();

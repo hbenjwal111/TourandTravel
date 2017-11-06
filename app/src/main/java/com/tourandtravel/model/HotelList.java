@@ -38,10 +38,10 @@ public class HotelList  {
     private String message;
 
 
-    public HotelList(List<CommonHotelModel> commonHotelModelList, int status,int hotel_id, String hotel_image, String name,String district) {
+    public HotelList(List<CommonHotelModel> commonHotelModelList, int status/*,String message,int hotel_id, String hotel_image, String name,String district*/) {
         this.commonHotelModelList = commonHotelModelList;
         this.status = status;
-        this.message = message;
+      // this.message = message;
        /* this.hotel_id = hotel_id;
         this.hotel_image =hotel_image;
         this.name=name;
