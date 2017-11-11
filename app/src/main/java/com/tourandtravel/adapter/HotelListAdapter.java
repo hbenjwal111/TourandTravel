@@ -1,7 +1,6 @@
 package com.tourandtravel.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tourandtravel.R;
-import com.tourandtravel.activity.CommonBaseActivity;
 import com.tourandtravel.model.CommonHotelModel;
 
 import java.util.List;
@@ -23,7 +21,10 @@ import java.util.List;
 
 public class HotelListAdapter extends RecyclerView.Adapter<HotelListAdapter.MyViewHolder> {
 private Context context;
+
 private List<CommonHotelModel> hotelLists;
+
+
 
     public static final String IMAGE_URL_BASE_PATH = "http://maestrotravel.co.in/";
 
@@ -39,6 +40,7 @@ public static class MyViewHolder extends RecyclerView.ViewHolder {
     private TextView textView;
     private ImageView mImageView;
     private TextView chooseRoom;
+    String hotel_id;
 
     public MyViewHolder(View v) {
         super(v);
@@ -48,17 +50,6 @@ public static class MyViewHolder extends RecyclerView.ViewHolder {
         textView = (TextView)v.findViewById(R.id.tv_text1);
         mImageView = (ImageView)v.findViewById(R.id.image);
         chooseRoom =(TextView)v.findViewById(R.id.choose);
-        chooseRoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent commonActivity = new Intent(v.getContext(),CommonBaseActivity.class);
-                commonActivity.putExtra("flowType", CommonBaseActivity.ROOM);
-                v.getContext().startActivity(commonActivity);
-
-
-            }
-        });
 
 
     }
@@ -86,7 +77,9 @@ public static class MyViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(HotelListAdapter.MyViewHolder holder, int position) {
 
         final CommonHotelModel constant = hotelLists.get(position);
-        String image_url = IMAGE_URL_BASE_PATH + constant.getHotel_image();
+
+        String image_url = IMAGE_URL_BASE_PATH + constant.getHotel_Image();
+
 
         Picasso.with(context)
                 .load(image_url)

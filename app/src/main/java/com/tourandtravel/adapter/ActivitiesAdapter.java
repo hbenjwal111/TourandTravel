@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tourandtravel.R;
-import com.tourandtravel.utils.Constant;
+import com.tourandtravel.model.ActivitiesModel;
 
 import java.util.List;
 
@@ -22,8 +23,11 @@ public class ActivitiesAdapter
 
         extends RecyclerView.Adapter<ActivitiesAdapter.MyViewHolder> {
     private Context context;
-    private List<Constant> cartList;
+    private List<ActivitiesModel> activitiesModels;
 
+    public int activity_id;
+
+    public static final String IMAGE_URL_BASE_PATH = "http://maestrotravel.co.in/";
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -46,9 +50,9 @@ public class ActivitiesAdapter
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ActivitiesAdapter(Context context, List<Constant> cartList) {
+    public ActivitiesAdapter(Context context, List<ActivitiesModel> activitiesModels) {
         this.context = context;
-        this.cartList = cartList;
+        this.activitiesModels = activitiesModels;
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,14 +70,23 @@ public class ActivitiesAdapter
     @Override
     public void onBindViewHolder(ActivitiesAdapter.MyViewHolder holder, int position) {
 
-        final Constant constant = cartList.get(position);
-        holder.mTextView.setText(constant.getTitle());
+        final ActivitiesModel constant = activitiesModels.get(position);
+        String image_url = IMAGE_URL_BASE_PATH + constant.getImage();
+
+
+        Picasso.with(context)
+                .load(image_url)
+                .into(holder.mImageView);
+        holder.mTextView.setText(constant.getName());
+        holder.textView.setText(constant.getAbout());
 
 
 
-        holder.textView.setText(constant.getDesc());
 
-        holder.mImageView.setImageResource(constant.getImageId());
+
+
+
+
 
 
 
@@ -83,7 +96,7 @@ public class ActivitiesAdapter
 
     @Override
     public int getItemCount() {
-        return cartList.size();
+        return activitiesModels.size();
     }
 
 

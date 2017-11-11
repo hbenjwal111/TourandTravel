@@ -72,7 +72,7 @@ public class HomeFragment extends BaseFragment {
         adapter.addFragment(new ClusterFragment(),"Cluster");
         adapter.addFragment(new ActivitiesFragment(),"Activities");
         adapter.addFragment(new MapFragment(),"Map");
-        adapter.addFragment(new NearByFragment(),"NearMe");
+       /* adapter.addFragment(new NearByFragment(),"NearMe");*/
         viewPager.setAdapter(adapter);
 
     }

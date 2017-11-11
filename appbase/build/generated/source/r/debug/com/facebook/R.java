@@ -681,7 +681,7 @@ public final class R {
         public static int com_facebook_button_xout = 0x7f0b0087;
         public static int com_facebook_device_auth_instructions = 0x7f0b0080;
         public static int com_facebook_fragment_container = 0x7f0b007d;
-        public static int com_facebook_login_activity_progress_bar = 0x7f0b0082;
+        public static int com_facebook_login_fragment_progress_bar = 0x7f0b0082;
         public static int com_facebook_smart_instructions_0 = 0x7f0b0083;
         public static int com_facebook_smart_instructions_or = 0x7f0b0084;
         public static int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f0b0089;

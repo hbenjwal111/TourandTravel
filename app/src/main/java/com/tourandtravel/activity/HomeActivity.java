@@ -4,6 +4,11 @@ package com.tourandtravel.activity;
  * Created by himanshu on 08-09-2017.
  */
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -39,6 +44,10 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
     FragmentTransaction mFragmentTransaction;
     private Stack<Fragment> fragmentStack;
     public DrawerLayout drawer;
+    private static final String SHARED_PREFERENCE_NAME = "TEREX_APP";
+    public static final String USER_ID = "USER_ID";
+
+
 
     static Button notifCount;
     static int mNotifCount = 0;
@@ -182,11 +191,83 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
 
         }
 
+        else if(id == R.id.nav_logout){
+
+       AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
+
+       // Setting Dialog Title
+       alertDialog.setTitle("Confirm Logout...");
+
+       // Setting Dialog Message
+       alertDialog.setMessage("Are you sure want to Logout ?");
+
+    /*  // Setting Icon to Dialog
+        alertDialog.setIcon(R.drawable.delete);*/
+
+       // Setting Positive "Yes" Button
+       alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+           public void onClick(DialogInterface dialog,int which) {
+
+
+               logOut();
+
+
+
+               // Write your code here to invoke YES event
+/*
+               Toast.makeText(getApplicationContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+*/
+
+           }
+       });
+
+       // Setting Negative "NO" Button
+       alertDialog.setNegativeButton("NO", new         DialogInterface.OnClickListener() {
+           public void onClick(DialogInterface dialog, int which) {
+               // Write your code here to invoke NO event
+/*
+               Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+*/
+               dialog.cancel();
+           }
+       });
+
+       // Showing Alert Message
+       alertDialog.show();
+
+       //           finish();
+       //
+
+
+
+   }
+
+
+
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
+    public void logOut() {
+
+
+        Intent logoutintent = new Intent(this, LoginActivity.class);
+        startActivity(logoutintent);
+        SharedPreferences loginSharedPreferences;
+        loginSharedPreferences = getSharedPreferences(
+                SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = loginSharedPreferences.edit();
+        editor.putString("USER_ID", "");
+        editor.commit();
+        finish();
+
+
+    }
 
 
 

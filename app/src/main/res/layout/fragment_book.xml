@@ -204,7 +204,7 @@
             app:cardCornerRadius="@dimen/dimen_3dp"
             app:cardElevation="@dimen/dimen_5dp"
             app:cardPreventCornerOverlap="false"
-            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingBottom="@dimen/dimen_30dp"
             app:contentPaddingLeft="@dimen/dimen_15dp"
             app:contentPaddingRight="@dimen/dimen_15dp"
             app:contentPaddingTop="@dimen/dimen_10dp"
@@ -218,7 +218,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dimen_50dp"
                     android:orientation="horizontal"
                     >
 
@@ -228,39 +228,61 @@
                     <TextView
                         android:id="@+id/room"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/dimen_50dp"
                         android:scrollHorizontally="false"
                         android:text="Number Of Room"
                         android:textSize="@dimen/text_medium"
                         android:textColor="@color/black"
                         android:textStyle="normal"
                         android:typeface="sans"
+
+
                         android:gravity="center"
 
                         android:layout_weight="1" />
 
-                    <View
-                        android:layout_width="@dimen/dimen_1dp"
-                        android:layout_height="match_parent"
-                        android:background="#c0c0c0"/>
+                    <Button
+                        android:id="@+id/decrease"
+                        android:background="@color/white"
+                        android:onClick="increaseInteger"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_20sp"
+
+
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:text="-" />
 
 
 
 
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/spinner"
+                    <TextView
+                        android:id="@+id/integer_number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollHorizontally="false"
-                        android:text=""
-                        android:textSize="@dimen/text_medium"
+                        android:layout_height="@dimen/dimen_50dp"
+
+                        android:textSize="@dimen/dimen_17sp"
                         android:textColor="@color/black"
                         android:textStyle="normal"
                         android:typeface="sans"
-
-
                         android:gravity="center"
-                        android:layout_weight="1" />
+
+                        android:layout_weight="1"
+                        android:text="1" />
+
+
+
+
+                    <Button
+                        android:id="@+id/increase"
+                        android:background="@color/white"
+                        android:onClick="increaseInteger"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_20sp"
+
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:text="+" />
 
                 </LinearLayout>
 
@@ -282,7 +304,7 @@
             app:cardCornerRadius="@dimen/dimen_3dp"
             app:cardElevation="@dimen/dimen_5dp"
             app:cardPreventCornerOverlap="false"
-            app:contentPaddingBottom="@dimen/dimen_10dp"
+            app:contentPaddingBottom="@dimen/dimen_30dp"
             app:contentPaddingLeft="@dimen/dimen_15dp"
             app:contentPaddingRight="@dimen/dimen_15dp"
             app:contentPaddingTop="@dimen/dimen_10dp"
@@ -306,7 +328,7 @@
                     <TextView
                         android:id="@+id/person"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/dimen_50dp"
                         android:scrollHorizontally="false"
                         android:text="Number Of Person"
                         android:textSize="@dimen/text_medium"
@@ -317,28 +339,55 @@
 
                         android:layout_weight="1" />
 
-                    <View
-                        android:layout_width="@dimen/dimen_1dp"
-                        android:layout_height="match_parent"
-                        android:background="#c0c0c0"/>
+
+                    <Button
+                        android:id="@+id/Pdecrease"
+                        android:background="@color/white"
+                        android:onClick="increaseInteger"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_20sp"
+
+
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:text="-" />
 
 
 
 
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/spinner1"
+                    <TextView
+                        android:id="@+id/Pinteger_number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollHorizontally="false"
-                        android:text=""
-                        android:textSize="@dimen/text_medium"
+                        android:layout_height="@dimen/dimen_50dp"
+
+                        android:textSize="@dimen/dimen_17sp"
                         android:textColor="@color/black"
                         android:textStyle="normal"
                         android:typeface="sans"
-
-
                         android:gravity="center"
-                        android:layout_weight="1" />
+
+                        android:layout_weight="1"
+                        android:text="1" />
+
+
+
+
+                    <Button
+                        android:id="@+id/Pincrease"
+                        android:background="@color/white"
+                        android:onClick="increaseInteger"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_20sp"
+
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:text="+" />
+
+
+
+
+
+
 
                 </LinearLayout>
 
@@ -351,8 +400,9 @@
             android:id="@+id/button_previous"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
             android:layout_gravity="bottom"
             android:layout_marginTop="@dimen/dimen_40dp"
             android:background="@drawable/top_bar_gradient"

@@ -1,5 +1,6 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +28,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -46,14 +48,15 @@ public class Commonfragment extends BaseFragment {
     private Button mButton;
     private APIService mAPIService;
 
-    private   Integer cluster_id;
+    List<CommonModel> modelList;
 
-    private String clus_title;
 
-    private String clus_about;
 
-    private String clus_image;
+    String clus_description,clus_image,clus_title,clus_id,activity_id,about,image;
 
+    String hotel_image,name,district,hotel_id;
+
+    ProgressDialog progressDialog;
 
     public Commonfragment() {
 
@@ -70,6 +73,19 @@ public class Commonfragment extends BaseFragment {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 
+
+
+        clus_description = getActivity().getIntent().getExtras().getString("clus_description");
+        clus_image = getActivity().getIntent().getExtras().getString("clus_image");
+        clus_title = getActivity().getIntent().getExtras().getString("clus_title");
+        clus_id = getActivity().getIntent().getExtras().getString("clus_id");
+       /* name=getActivity().getIntent().getExtras().getString("name");
+        about=getActivity().getIntent().getExtras().getString("about");
+        image=getActivity().getIntent().getExtras().getString("image");
+        activity_id=getActivity().getIntent().getExtras().getString("activity_id");
+*/
+
+
         mAPIService = ApiUtils.getAPIService();
 
 
@@ -84,8 +100,21 @@ public class Commonfragment extends BaseFragment {
 
 
 
+
+
+
+
+
+
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.HOTEL);
+
+                commonActivity.putExtra("clus_id", clus_id);
+
+
+
+
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -119,21 +148,25 @@ public class Commonfragment extends BaseFragment {
 
 
     private void getClusterDetail(){
-        showProgressDialog();
+        if (Utils.isNetworkConnected(getActivity(), true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
 
-        mAPIService.getClusterDetail(cluster_id).enqueue(new Callback<CommonList>() {
+        mAPIService.getClusterDetail(Integer.parseInt(clus_id)).enqueue(new Callback<CommonList>() {
             @Override
             public void onResponse(Call<CommonList> call, Response<CommonList> response) {
 
-               CommonList commonList = response.body();
+                CommonList commonList = response.body();
                 if(commonList.getStatus()==1){
-                    List<CommonModel> modelList = commonList.getCommonModelList();
+                   modelList = commonList.getCommonModelList();
                     CommonAdapter commonAdapter = new CommonAdapter(getActivity(),modelList);
 
                     recyclerView.setAdapter(commonAdapter);
-                    dismissProgressDialog();
+                   progressDialog.dismiss();
                 }else{
-                    dismissProgressDialog();
+                    progressDialog.dismiss();
                 }
 
             }
@@ -142,7 +175,7 @@ public class Commonfragment extends BaseFragment {
             public void onFailure(Call<CommonList> call, Throwable t) {
 
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                dismissProgressDialog();
+                progressDialog.dismiss();
 
 
             }

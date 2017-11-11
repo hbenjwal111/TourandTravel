@@ -35,47 +35,6 @@ public class NearByFragment extends BaseFragment {
     private NearMeAdapter mAdapter;
 
 
-    public static final String[] titles = new String[] {
-            "Badrinath",
-            "Gangotri", "Yamonotri", "Kedarnath",
-            "Chakrata","Kausani"," Chamoli",
-            "Dehradun","Dhanaulti","Haridwar",
-
-            "HemkundShahib","Karanprayag"};
-
-    public static final String[] descriptions = new String[] {
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-            "It is an aggregate accessory fruit",
-
-            "It is the largest herbaceous flowering plant",
-            "Citrus Fruit",
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant"
-
-    };
-
-    public static final Integer[] images = {
-            R.drawable.badinath,
-            R.drawable.gangotri,
-            R.drawable.yamunotri,
-            R.drawable.kedarnath,
-
-            R.drawable.chkrt,
-            R.drawable.ksuni
-            , R.drawable.chmoli,
-            R.drawable.dehrdun,
-
-            R.drawable.dhnulti,
-            R.drawable.hridwr,
-            R.drawable.hemkund,
-            R.drawable.kedarnath};
 
     private FragmentManager fragmentManager;
 
@@ -90,10 +49,7 @@ public class NearByFragment extends BaseFragment {
         setHasOptionsMenu(true);
 
         cartList = new ArrayList<Constant>();
-        for (int i = 0; i < titles.length; i++) {
-            Constant item = new Constant(images[i], titles[i], descriptions[i]);
-            cartList.add(item);
-        }
+
 
        /* cartList = new ArrayList<>();*/
 

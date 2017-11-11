@@ -57,8 +57,8 @@ public class DashBoardFragment extends Fragment {
 
 
     public static final String[] titles = new String[] {
-            "Education",
-            "Corporate", "Leisure", "Wellness"
+            "Education Travel",
+            "Corporate Travel", "Leisure Travel", "Wellness Travel"
             };
 
 
@@ -161,9 +161,8 @@ public class DashBoardFragment extends Fragment {
 
     private List<Nature> dataSource() {
         List<Nature> data = new ArrayList<Nature>();
-        data.add(new Nature(R.drawable.dhnulti ));
+       data.add(new Nature(R.drawable.dhnulti ));
         data.add(new Nature(R.drawable.chmoli));
-        data.add(new Nature(R.drawable.uttrkshi));
 
         data.add(new Nature(R.drawable.chkrt));
 

@@ -50,6 +50,12 @@ public class CommonBaseActivity extends BaseActivity {
 
     public final static int TRAVELLER = 6;
 
+    public final static int ACTIVITIES =7;
+
+    public  final static int MAP =8;
+
+    public final  static int Prime = 9;
+
 
 
 
@@ -100,13 +106,41 @@ public class CommonBaseActivity extends BaseActivity {
 
                 break;
 
+            case ACTIVITIES:
+
+                replaceView(R.id.fullscreen_content_controls, new HomeFragment(),true,true);
+break;
+
+
+            case MAP:
+
+                replaceView(R.id.fullscreen_content_controls, new HomeFragment(),true,true);
+break;
+
+
+
 
             case CHECK_IN_NAV:
 
                 getmActionBar().setTitle("About Cluster");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
             replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
+                Commonfragment selectAddon = new Commonfragment();
+                Bundle bundle = new Bundle();
 
+
+                bundle.putString("clus_description",getIntent().getExtras().getString("clus_description"));
+                bundle.putString("clus_image",getIntent().getExtras().getString("clus_image"));
+                bundle.putString("clus_title",getIntent().getExtras().getString("clus_title"));
+                bundle.putString("cluster_id",getIntent().getExtras().getString("cluster_id"));
+               /* bundle.putString("activity_id",getIntent().getExtras().getString("activity_id"));
+                bundle.putString("name",getIntent().getExtras().getString("name"));
+                bundle.putString("about",getIntent().getExtras().getString("about"));
+                bundle.putString("image",getIntent().getExtras().getString("image"));
+
+*/
+
+                selectAddon.setArguments(bundle);
                 break;
 
             case HOTEL:
@@ -114,6 +148,18 @@ public class CommonBaseActivity extends BaseActivity {
                 getmActionBar().setTitle("Hotels");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
                 replaceView(R.id.fullscreen_content_controls, new CommonHotelFragment(),true,true);
+
+                CommonHotelFragment hotelsFragment = new CommonHotelFragment();
+                Bundle hotelBundle = new Bundle();
+
+                hotelBundle.putString("cluster_id",getIntent().getExtras().getString("cluster_id"));
+                hotelsFragment.setArguments(hotelBundle);
+
+
+
+
+
+
 
                 break;
 
@@ -123,8 +169,23 @@ public class CommonBaseActivity extends BaseActivity {
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
                 replaceView(R.id.fullscreen_content_controls, new RoomTypeFragment(),true,true);
 
+                RoomTypeFragment roomTypeFragment = new RoomTypeFragment();
+
+                 Bundle roomBundle = new Bundle();
+
+                roomBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+
+                  roomTypeFragment.setArguments(roomBundle);
+
+
 
               break;
+
+
+
+
+
+
 
             case BOOK:
 
@@ -132,15 +193,26 @@ public class CommonBaseActivity extends BaseActivity {
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
                 replaceView(R.id.fullscreen_content_controls, new BookFragment(),true,true);
 
+               BookFragment bookFragment = new BookFragment();
+
+                Bundle bookBundle = new Bundle();
+
+                bookBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+
+                bookFragment.setArguments(bookBundle);
 
 
 
-break;
+
+
+                break;
 
             case REVIEW:
 
                 getmActionBar().setTitle("Review Booking");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
+
+
                 replaceView(R.id.fullscreen_content_controls, new ReviewBooking(),true,true);
 
 

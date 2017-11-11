@@ -2,14 +2,13 @@ package com.tourandtravel.fragment;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.extect.appbase.BaseFragment;
@@ -28,21 +27,33 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
 
 
 
-    private TextView fromDate, toDate;
+    private TextView fromDate, toDate,display,pdisplay;
 
 
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
     private SimpleDateFormat dateFormatter;
 
+    String hotel_id;
+
+    SharedPreferences pref;
+
+
+    String checkInDate,checkOutDate,numberRoom,numberPerson;
+
 
 
 
     private Button mButton;
 
-    String[] room = { "1","2","3","4","5","6","7","8"  };
 
-    String[] people = {"1","2","3","4","5","6","7","8" };
+
+    private Button add,sub,padd,psub;
+
+   int  numtest = 1;
+
+
+
 
     public BookFragment() {
 
@@ -55,21 +66,84 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_book, parent, false);
 
-        Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner);
-        Spinner spinner1 =(Spinner) rootView.findViewById(R.id.spinner1);
+        hotel_id = getActivity().getIntent().getExtras().getString("hotel_id");
 
-        ArrayAdapter aa = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,room);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner.setAdapter(aa);
 
-        ArrayAdapter aaa = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,people);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner1.setAdapter(aaa);
+
+
+
 
 
         mButton =(Button)rootView.findViewById(R.id.button_previous);
+
+      add = (Button)rootView.findViewById(R.id.increase);
+      sub = (Button)rootView.findViewById(R.id.decrease);
+
+        padd = (Button)rootView.findViewById(R.id.Pincrease);
+        psub = (Button)rootView.findViewById(R.id.Pdecrease);
+
+        display = (TextView)rootView.findViewById(R.id.integer_number);
+        pdisplay = (TextView)rootView.findViewById(R.id.Pinteger_number);
+
+        int i = Integer.valueOf(display.getText().toString());
+
+        int j = Integer.valueOf(pdisplay.getText().toString());
+
+
+
+
+
+
+         add.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+
+                 numtest = numtest + 1;
+                 display.setText("" + numtest);
+
+             }
+         });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (numtest < 1){
+                    numtest =  1;
+                    display.setText(numtest+ "");
+                }
+                if (numtest > 1) {
+                    numtest = numtest - 1;
+                    display.setText(numtest+ "");
+                }
+            }
+        });
+
+
+        padd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                numtest = numtest + 1;
+                pdisplay.setText("" + numtest);
+
+            }
+        });
+
+        psub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (numtest < 1){
+                    numtest =  1;
+                    pdisplay.setText(numtest+ "");
+                }
+                if (numtest > 1) {
+                    numtest = numtest - 1;
+                    pdisplay.setText(numtest+ "");
+                }
+            }
+        });
+
+
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +151,7 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.REVIEW);
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -143,6 +218,7 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
                 newDate.set(year, monthOfYear, dayOfMonth);
                 toDate.setText(dateFormatter.format(newDate.getTime()));
 
+
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -160,6 +236,8 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
         if(view == fromDate) {
             fromDatePickerDialog.show();
         } else if(view == toDate) {
+
+
             toDatePickerDialog.show();
         }
     }

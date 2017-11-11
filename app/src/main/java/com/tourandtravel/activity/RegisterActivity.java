@@ -1,5 +1,6 @@
 package com.tourandtravel.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import utils.Utils;
 
 /**
  * Created by himanshu on 13-09-2017.
@@ -35,6 +37,7 @@ public class RegisterActivity extends BaseActivity {
     private EditText nameEdt, emailEdt, passEdt, phoneEdt, usernameEdt;
 
     private TextView signup,login;
+    private ProgressDialog progressDialog;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,11 +160,15 @@ public class RegisterActivity extends BaseActivity {
 
 
     public void sendRegister(String name, String email, String password, String phone, String username) {
-        showProgressDialog();
+        if (Utils.isNetworkConnected(this, true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
         mAPIService.registerPost(name, password, email, username, phone).enqueue(new Callback<CustomerRegisterModel>() {
             @Override
             public void onResponse(Call<CustomerRegisterModel> call, Response<CustomerRegisterModel> response) {
-                dismissProgressDialog();
+               progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     if(response.body().getStatus() == 1){
                         Toast.makeText(RegisterActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
@@ -178,7 +185,7 @@ public class RegisterActivity extends BaseActivity {
             public void onFailure(Call<CustomerRegisterModel> call, Throwable t) {
                 Log.e(TAG, "Unable to submit post to API.");
                 call.cancel();
-                dismissProgressDialog();
+                progressDialog.dismiss();
             }
         });
     }

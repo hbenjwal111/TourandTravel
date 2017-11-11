@@ -13,9 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -27,9 +25,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.tourandtravel.R;
@@ -38,7 +34,6 @@ import com.tourandtravel.utils.LatLangBeans;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
 import static com.tourandtravel.R.id.map;
 
 /**
@@ -60,117 +55,17 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_map, null, false);
-        EditText editText = (EditText)root.findViewById(R.id.fullNameEt);
        /* setData();*/
 
         initilizeMap();
+
         return root;
     }
 
 
-    private void setData()
-    {
-        ArrayList<LatLangBeans> arrayList=new ArrayList<LatLangBeans>();
-        LatLangBeans bean=new LatLangBeans();
-        bean.setTitle("Ahmedabad");
-        bean.setSnippet("Hello,Ahmedabad");
-        bean.setLatitude("30.7344861");
-        bean.setLongitude("79.0647465");
-        arrayList.add(bean);
-
-        LatLangBeans bean1=new LatLangBeans();
-        bean1.setTitle("Surat");
-        bean1.setSnippet("Hello,Surat");
-        bean1.setLatitude("30.9951765");
-        bean1.setLongitude("78.9364135");
-        arrayList.add(bean1);
-
-        LatLangBeans bean2=new LatLangBeans();
-        bean2.setTitle("Vadodara");
-        bean2.setSnippet("Hello,Vadodara");
-        bean2.setLatitude("22.3000");
-        bean2.setLongitude("73.2000");
-        arrayList.add(bean2);
-
-        LoadingGoogleMap(arrayList);
-    }
-
-    void LoadingGoogleMap(ArrayList<LatLangBeans> arrayList) {
-        if (mMap != null) {
-            mMap.clear();
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
-
-/* mMap.setMyLocationEnabled(true);*/
-
-            mMap.getUiSettings().setZoomControlsEnabled(true);
-
-            if (arrayList.size() > 0) {
-                try {
-                    listLatLng = new ArrayList<LatLng>();
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        LatLangBeans bean = arrayList.get(i);
-                        if (bean.getLatitude().length() > 0 && bean.getLongitude().length() > 0) {
-                            double lat = Double.parseDouble(bean.getLatitude());
-                            double lon = Double.parseDouble(bean.getLongitude());
-
-                            Marker marker = mMap.addMarker(new MarkerOptions()
-                                    .position(new LatLng(lat, lon))
-                                    .title(bean.getTitle())
-                                    .snippet(bean.getSnippet())
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-
-                            //Add Marker to Hashmap
-                            hashMapMarker.put(marker, bean);
-
-                            //Set Zoom Level of Map pin
-                            LatLng object = new LatLng(lat, lon);
-                            listLatLng.add(object);
-                        }
-                    }
-                    SetZoomlevel(listLatLng);
-
-
-                    SetZoomlevel(listLatLng);
-
-
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
 
 
 
-                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-
-                    @Override
-                    public void onInfoWindowClick(Marker position)
-                    {
-                        LatLangBeans bean=hashMapMarker.get(position);
-                        Toast.makeText(getApplicationContext(), bean.getTitle(),Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-            }
-        }
-
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void  SetZoomlevel(ArrayList<LatLng> listLatLng) {
-        if (listLatLng != null && listLatLng.size() == 1) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(listLatLng.get(0), 10));
-        } else if (listLatLng != null && listLatLng.size() > 1) {
-
-            final LatLngBounds.Builder builder = LatLngBounds.builder();
-            for (int i = 0; i < listLatLng.size(); i++) {
-                builder.include(listLatLng.get(i));
-            }
-
-        }
-
-    }
 
 
 
@@ -189,6 +84,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                 googleMap.addMarker(new MarkerOptions().position(new LatLng(10.1253,10.5868)));*/
         }
 
+
     }
 
     @Override
@@ -204,22 +100,6 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
         mGoogleApiClient.connect();
 
-       /* mMap.addMarker(new MarkerOptions()
-                .title("India")
-                .snippet("New Delhi")
-                .position(new LatLng(20.59, 78.96)));
-        mMap.addMarker(new MarkerOptions()
-                .title("Prague")
-                .snippet("Czech Republic")
-                .position(new LatLng(50.08, 14.43)));
-        mMap.addMarker(new MarkerOptions()
-                .title("Paris")
-                .snippet("France")
-                .position(new LatLng(48.86,2.33)));
-        mMap.addMarker(new MarkerOptions()
-                .title("London")
-                .snippet("United Kingdom")
-                .position(new LatLng(51.51,-0.1)));*/
 
 
     }
@@ -271,12 +151,56 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         //To create marker in map
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("My Location");
         //adding marker to the map
         mMap.addMarker(markerOptions);
 
         //opening position with some zoom level in the map
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));
+
+        mMap.addMarker(new MarkerOptions()
+                .title("Gangotri")
+                .position(new LatLng(30.9951765,78.9364135)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Badrinath")
+                .position(new LatLng(30.7417522,79.4852149)));
+        mMap.addMarker(new MarkerOptions()
+                .title("kausani")
+                .position(new LatLng(29.8430212,79.5956414)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Chakrata")
+                .position(new LatLng(30.7033198,77.857983)));
+        mMap.addMarker(new MarkerOptions()
+                .title("yamunotri")
+                .position(new LatLng(31.0127489,78.4506513)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Uttarkashi")
+                .position(new LatLng(30.7249938,78.4114192)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Kedarnath")
+                .position(new LatLng(30.7344861,79.0647465)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Dhanaulti")
+                .position(new LatLng(30.4043058,78.2158204)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Haridwar")
+                .position(new LatLng(29.9527801,78.045885)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Tehri")
+                .position(new LatLng(30.3787326,78.4286888)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Dehradun")
+                .position(new LatLng(30.325558,77.9470939)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Hemkund Shahib")
+                .position(new LatLng(30.3234499,78.2736445)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Rudraprayag")
+                .position(new LatLng(30.2854095,78.9709604)));
+        mMap.addMarker(new MarkerOptions()
+                .title("Lansdown")
+                .position(new LatLng(29.8433511,78.6711537)));
+
+
     }
 
 

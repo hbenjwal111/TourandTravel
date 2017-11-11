@@ -1,5 +1,6 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
+import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -40,44 +41,54 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class CommonHotelFragment  extends BaseFragment {
 
 
+
+
+
     private RecyclerView recyclerView;
-    private List<HotelList> hotelLists;
     private HotelListAdapter mAdapter;
     private TextView chooseRoom;
+    List<CommonHotelModel> commonHotelModels;
 
     private APIService mAPIService;
 
-    private   Integer cluster_id;
 
-    private Integer hotel_id;
+    Integer cluster_id;
 
+    String clus_id, hotel_id, name, district, hotel_image;
 
-
-
+    private ProgressDialog progressDialog;
 
 
     private FragmentManager fragmentManager;
 
-    public CommonHotelFragment(){
+    public CommonHotelFragment() {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_common_hotel, parent, false);
 
+
+        clus_id = getActivity().getIntent().getExtras().getString("clus_id");
+
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 
+
+
+
+
+
+
         mAPIService = ApiUtils.getAPIService();
+
 
         setHasOptionsMenu(true);
 
 
 
        /* cartList = new ArrayList<>();*/
-
-
-
-
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -88,19 +99,23 @@ public class CommonHotelFragment  extends BaseFragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
 
-
-
-        recyclerView.addOnItemTouchListener(new ClusterFragment.RecyclerTouchListener(getActivity(), recyclerView, new ClusterFragment.ClickListener() {
+        recyclerView.addOnItemTouchListener(new CommonHotelFragment.RecyclerTouchListener(getActivity(), recyclerView, new CommonHotelFragment.ClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-               Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
+
+                CommonHotelModel selectedItemPosition = commonHotelModels.get(position);
+
+
+                Intent commonActivity = new Intent(getActivity(), CommonBaseActivity.class);
+
                 commonActivity.putExtra("flowType", CommonBaseActivity.ROOM);
+                commonActivity.putExtra("hotel_name", selectedItemPosition.getName());
+                commonActivity.putExtra("hotel_district", selectedItemPosition.getDistrict());
+                commonActivity.putExtra("hotel_image", selectedItemPosition.getHotel_Image());
+                commonActivity.putExtra("hotel_id", selectedItemPosition.getHotelId() + "");
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
-
 
 
             }
@@ -117,22 +132,34 @@ public class CommonHotelFragment  extends BaseFragment {
         return rootView;
     }
 
-    private void getHotelList(){
-        showProgressDialog();
+    private void getHotelList() {
+        if (Utils.isNetworkConnected(getActivity(), true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
 
-        mAPIService.getHotelList(cluster_id).enqueue(new Callback<HotelList>() {
+
+        mAPIService.getHotelList(clus_id,name, district, hotel_image,hotel_id).enqueue(new Callback<HotelList>() {
             @Override
-            public void onResponse(Call<HotelList> call, Response<HotelList> response) {
+            public void onResponse(Call<HotelList> call, retrofit2.Response<HotelList> response) {
+
 
                 HotelList hotelList = response.body();
-                if(hotelList.getStatus()==1){
-                    List<CommonHotelModel> listCluster = hotelList.getCommonHotelModelList();
-                    HotelListAdapter hotelListAdapter = new HotelListAdapter(getActivity(),listCluster);
+                if (hotelList.getStatus() == 1) {
+
+
+
+                    commonHotelModels = hotelList.getCommonHotelModelList();
+
+
+                    HotelListAdapter hotelListAdapter = new HotelListAdapter(getActivity(), commonHotelModels);
 
                     recyclerView.setAdapter(hotelListAdapter);
-                    dismissProgressDialog();
-                }else{
-                    dismissProgressDialog();
+
+                    progressDialog.dismiss();
+                } else {
+                   progressDialog.dismiss();
                 }
 
             }
@@ -141,15 +168,17 @@ public class CommonHotelFragment  extends BaseFragment {
             public void onFailure(Call<HotelList> call, Throwable t) {
 
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                dismissProgressDialog();
+               progressDialog.dismiss();
 
 
             }
         });
 
 
-
     }
+
+
+
 
 
     @Override
@@ -177,9 +206,9 @@ public class CommonHotelFragment  extends BaseFragment {
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
-        private ClusterFragment.ClickListener clickListener;
+        private CommonHotelFragment.ClickListener clickListener;
 
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClusterFragment.ClickListener clickListener) {
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final CommonHotelFragment.ClickListener clickListener) {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
@@ -191,7 +220,7 @@ public class CommonHotelFragment  extends BaseFragment {
                 public void onLongPress(MotionEvent e) {
                     View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                     if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child));
                     }
                 }
             });
@@ -202,7 +231,7 @@ public class CommonHotelFragment  extends BaseFragment {
 
             View child = rv.findChildViewUnder(e.getX(), e.getY());
             if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
             }
             return false;
         }

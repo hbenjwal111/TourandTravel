@@ -1,5 +1,6 @@
 package com.tourandtravel.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -24,9 +25,12 @@ import com.tourandtravel.api.ApiUtils;
 import com.tourandtravel.api.AppPreferences;
 import com.tourandtravel.model.CustomerLoginModel;
 
+import java.util.regex.Pattern;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import utils.Utils;
 
 /*import com.facebook.FacebookSdk;*/
 
@@ -45,6 +49,9 @@ public class LoginActivity extends BaseActivity {
     public LoginButton loginButton;
 
     CallbackManager callbackManager;
+
+    private ProgressDialog progressDialog;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +132,15 @@ public class LoginActivity extends BaseActivity {
 
 
                 if (username.trim().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Please enter username.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please enter emailId.", Toast.LENGTH_LONG).show();
 
                     return;
 
+                }
+                if (!isValidEmaillId(username)) {
+                    Toast.makeText(getApplicationContext(), "Please enter valid Email-Id", Toast.LENGTH_LONG).show();
+
+                    return;
                 }
                 if (password.trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter password.", Toast.LENGTH_LONG).show();
@@ -149,13 +161,34 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    private boolean isValidEmaillId(String email) {
+
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+    }
+
     public void sendLogin(String username, String password) {
-        showProgressDialog();
+
+
+
+
+        if (Utils.isNetworkConnected(this, true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
+
+
+
 
         mAPIService.loginPost(username, password).enqueue(new Callback<CustomerLoginModel>() {
             @Override
             public void onResponse(Call<CustomerLoginModel> call, Response<CustomerLoginModel> response) {
-                dismissProgressDialog();
+               progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     if(response.body().getStatus() == 1){
 
@@ -176,7 +209,7 @@ public class LoginActivity extends BaseActivity {
             public void onFailure(Call<CustomerLoginModel> call, Throwable t) {
                 Log.e(TAG, "Unable to submit post to API.");
                 call.cancel();
-                dismissProgressDialog();
+               progressDialog.dismiss();
             }
         });
     }
@@ -200,6 +233,8 @@ public class LoginActivity extends BaseActivity {
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+
 }
 
 

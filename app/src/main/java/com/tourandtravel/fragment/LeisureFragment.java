@@ -1,5 +1,6 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,15 +14,24 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
 import com.tourandtravel.activity.CommonBaseActivity;
+import com.tourandtravel.adapter.LeisureAdapter;
 import com.tourandtravel.adapter.TimeAdapter;
-import com.tourandtravel.utils.room;
+import com.tourandtravel.api.APIService;
+import com.tourandtravel.api.ApiUtils;
+import com.tourandtravel.model.LeisureTimeList;
+import com.tourandtravel.model.LeisureTimeModel;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -33,47 +43,19 @@ public class LeisureFragment extends BaseFragment {
 
 
     private RecyclerView recyclerView;
-    private List<room> roomList;
+    List<LeisureTimeModel> leisureTimeModels;
+
     private TimeAdapter mAdapter;
 
-    public static final String[] time = new String[]{
+    private APIService mAPIService;/**/
 
-            "may","jun","july","august","may","jun"
-    };
+    String hotel_id;
 
 
-    public static final String[] titles = new String[] {
-            "Badrinath",
-            "Gangotri", "Yamonotri", "Kedarnath",
-            "Chakrata","Kausani"};
-
-    public static final String[] type= new String[] {
-            "ac","ac","ac","ac","ac","ac"
-
-    };
-
-    public static final String[] price = new String[]{
-
-            "2000","2000","2000","2000","2000","2000"
-    };
-
-    public static final Integer[] images = {
-            R.drawable.badinath,
-            R.drawable.gangotri,
-            R.drawable.yamunotri,
-            R.drawable.kedarnath,
-
-            R.drawable.chkrt,
-            R.drawable.ksuni
-            , R.drawable.chmoli,
-            R.drawable.dehrdun,
-
-            R.drawable.dhnulti,
-            R.drawable.hridwr,
-            R.drawable.hemkund,
-            R.drawable.kedarnath};
 
     private FragmentManager fragmentManager;
+
+    private ProgressDialog progressDialog;
 
     public LeisureFragment(){
     }
@@ -82,18 +64,20 @@ public class LeisureFragment extends BaseFragment {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_prim, parent, false);
 
+        hotel_id = getActivity().getIntent().getExtras().getString("hotel_id");
+
+
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
+
+
         setHasOptionsMenu(true);
 
-        roomList = new ArrayList<room>();
-        for (int i = 0; i < titles.length; i++) {
-            room item = new room(images[i], titles[i], time[i],type[i],price[i]);
-            roomList.add(item);
-        }
+        mAPIService = ApiUtils.getAPIService();
 
        /* cartList = new ArrayList<>();*/
 
-        mAdapter = new TimeAdapter(getActivity(), roomList);
 
 
 
@@ -104,16 +88,17 @@ public class LeisureFragment extends BaseFragment {
 
 
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
 
 
 
-        recyclerView.addOnItemTouchListener(new LeisureFragment.RecyclerTouchListener(getActivity(), recyclerView, new LeisureFragment.ClickListener() {
+        recyclerView.addOnItemTouchListener(new PrimeFragment.RecyclerTouchListener(getActivity(), recyclerView, new PrimeFragment.ClickListener() {
             @Override
             public void onClick(View view, int position) {
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.BOOK);
+
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -129,9 +114,50 @@ public class LeisureFragment extends BaseFragment {
             }
 
         }));
-        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        getLeisurePriceList();
 
         return rootView;
+    }
+
+
+    private void getLeisurePriceList() {
+        if (Utils.isNetworkConnected(getActivity(), true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
+
+        mAPIService.getLeisurePriceList(Integer.parseInt(hotel_id)).enqueue(new Callback<LeisureTimeList>() {
+            @Override
+            public void onResponse(Call<LeisureTimeList> call, Response<LeisureTimeList> response) {
+
+                LeisureTimeList commonList = response.body();
+                if(commonList.getStatus()==1){
+                    leisureTimeModels = commonList.getLeisureTimeModelsList();
+                    LeisureAdapter commonAdapter = new LeisureAdapter(getActivity(),leisureTimeModels);
+
+                    recyclerView.setAdapter(commonAdapter);
+                    progressDialog.dismiss();
+                }else{
+                    progressDialog.dismiss();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<LeisureTimeList> call, Throwable t) {
+
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
+
+            }
+        });
+
+
+
+
     }
 
     @Override
@@ -159,9 +185,9 @@ public class LeisureFragment extends BaseFragment {
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
-        private LeisureFragment.ClickListener clickListener;
+        private PrimeFragment.ClickListener clickListener;
 
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final LeisureFragment.ClickListener clickListener) {
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final PrimeFragment.ClickListener clickListener) {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override

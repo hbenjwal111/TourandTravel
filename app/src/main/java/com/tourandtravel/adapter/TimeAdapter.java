@@ -1,7 +1,6 @@
 package com.tourandtravel.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tourandtravel.R;
-import com.tourandtravel.activity.CommonBaseActivity;
-import com.tourandtravel.utils.room;
+import com.tourandtravel.model.PrimeTimeModel;
 
 import java.util.List;
 
@@ -22,7 +21,9 @@ import java.util.List;
 
 public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> {
     private Context context;
-    private List<room> roomList;
+    private List<PrimeTimeModel> primeTimeModelList;
+
+    public static final String IMAGE_URL_BASE_PATH = "http://maestrotravel.co.in/";
 
 
     // Provide a reference to the views for each data item
@@ -43,30 +44,20 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
             super(v);
 
             mCardView = (CardView) v.findViewById(R.id.card_view);
-            mTime =(TextView)v.findViewById(R.id.tv_text);
-            mTitle =(TextView)v.findViewById(R.id.tv_text1);
-            mType =(TextView)v.findViewById(R.id.tv_text2);
-            mPrice =(TextView)v.findViewById(R.id.tv_text3);
-           mBook =(TextView)v.findViewById(R.id.choose);
-            mImageView = (ImageView)v.findViewById(R.id.image);
+            mTime = (TextView) v.findViewById(R.id.tv_text);
+            mTitle = (TextView) v.findViewById(R.id.tv_text1);
+            mType = (TextView) v.findViewById(R.id.tv_text2);
+            mPrice = (TextView) v.findViewById(R.id.tv_text3);
+            mBook = (TextView) v.findViewById(R.id.choose);
+            mImageView = (ImageView) v.findViewById(R.id.image);
 
-            mBook.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent commonActivity = new Intent(v.getContext(),CommonBaseActivity.class);
-                    commonActivity.putExtra("flowType", CommonBaseActivity.BOOK);
-                    v.getContext().startActivity(commonActivity);
-
-                }
-            });
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public TimeAdapter(Context context, List<room> roomList) {
+    public TimeAdapter(Context context, List<PrimeTimeModel> primeTimeModelList) {
         this.context = context;
-        this.roomList = roomList;
+        this.primeTimeModelList = primeTimeModelList;
     }
 
     // Create new views (invoked by the layout manager)
@@ -84,15 +75,25 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(TimeAdapter.MyViewHolder holder, int position) {
 
-        final room constant = roomList.get(position);
-        holder.mTime.setText(constant.getTime());
-        holder.mTitle.setText(constant.getTitle());
-       holder.mType.setText(constant.getType());
-        holder.mPrice.setText(constant.getPrice());
+        final PrimeTimeModel constant = primeTimeModelList.get(position);
+
+        String image_url = IMAGE_URL_BASE_PATH + constant.getHotel_image();
+
+
+        Picasso.with(context)
+                .load(image_url)
+                .into(holder.mImageView);
+
+        holder.mTitle.setText(constant.getHotel_name());
+
+        holder.mPrice.setText(constant.getDlx());
+/*
+        holder.mType.setText(constant.getHotel_prize());
+*/
 
 
 
-        holder.mImageView.setImageResource(constant.getImageId());
+
 
 
 
@@ -104,7 +105,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return roomList.size();
+        return primeTimeModelList.size();
     }
 
 

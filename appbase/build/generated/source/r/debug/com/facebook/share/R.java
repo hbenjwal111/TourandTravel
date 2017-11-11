@@ -643,7 +643,7 @@ public final class R {
         public static int collapseActionView = 0x7f0b0039;
         public static int com_facebook_device_auth_instructions = 0x7f0b0080;
         public static int com_facebook_fragment_container = 0x7f0b007d;
-        public static int com_facebook_login_activity_progress_bar = 0x7f0b0082;
+        public static int com_facebook_login_fragment_progress_bar = 0x7f0b0082;
         public static int com_facebook_smart_instructions_0 = 0x7f0b0083;
         public static int com_facebook_smart_instructions_or = 0x7f0b0084;
         public static int confirmation_code = 0x7f0b007e;

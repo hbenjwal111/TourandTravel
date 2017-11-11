@@ -37,6 +37,8 @@ public class CommonAdapter  extends RecyclerView.Adapter<CommonAdapter.MyViewHol
 
         public ImageView mImageView;
 
+
+
         public MyViewHolder(View v) {
             super(v);
 

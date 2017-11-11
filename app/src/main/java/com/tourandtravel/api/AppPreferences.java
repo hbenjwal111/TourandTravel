@@ -11,6 +11,10 @@ public class AppPreferences {
     public static final String USER_ID = "USER_ID";
     public static final String USER_NAME = "USER_NAME";
     public static final String FIREBASE_ID = "FIREBASE_ID";
+    public static final String CHECKIN_DATE="CHECKIN_DATE";
+    public static final String CHECKOUT_DATE="CHECKOUT_DATE";
+    public static final String NUMBER_OF_ROOM="NUMBER_OF_ROOM";
+    public static final String NUMBER_OF_PERSON="NUMBER_OF_PERSON";
 
 
     public SharedPreferences mPrefs;

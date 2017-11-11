@@ -1,5 +1,6 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -39,7 +41,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class ClusterFragment extends BaseFragment {
 
 
-
+    List<ClusterModel> listCluster;
 
     private RecyclerView recyclerView;
     private ClusterAdapter mAdapter;
@@ -49,10 +51,12 @@ public class ClusterFragment extends BaseFragment {
     private FragmentManager fragmentManager;
 
 
-   private  Integer cluster_id;
+    private  Integer cluster_id;
     private   String clus_discription;
-   private String clus_image;
+    private String clus_image;
     private  String clus_title;
+
+    private ProgressDialog progressDialog;
 
 
 
@@ -99,12 +103,17 @@ public class ClusterFragment extends BaseFragment {
             public void onClick(View view, int position) {
 
 
-
-
+                ClusterModel selectedItemData = listCluster.get(position);
 
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.CHECK_IN_NAV);
+                commonActivity.putExtra("clus_description", selectedItemData.getClusDiscription());
+                commonActivity.putExtra("clus_image", selectedItemData.getClusImage());
+                commonActivity.putExtra("clus_title", selectedItemData.getClusTitle());
+
+                commonActivity.putExtra("clus_id", selectedItemData.getClusterId()+"");
+
                 startActivity(commonActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -112,7 +121,7 @@ public class ClusterFragment extends BaseFragment {
 
 
 
-                         }
+            }
 
             @Override
             public void onLongClick(View view, int position) {
@@ -143,9 +152,13 @@ public class ClusterFragment extends BaseFragment {
 
     private void getAllCluster(){
 
-        showProgressDialog();
+        if (Utils.isNetworkConnected(getActivity(), true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
 
-        mAPIService.getAllCluster(cluster_id,clus_title,clus_discription,clus_image).enqueue(new Callback<ClusterList>() {
+        mAPIService.getAllCluster(clus_title,clus_discription,clus_image).enqueue(new Callback<ClusterList>() {
             @Override
             public void onResponse(Call<ClusterList> call, Response<ClusterList> response) {
 
@@ -156,13 +169,13 @@ public class ClusterFragment extends BaseFragment {
                 ClusterList listClusterModel = response.body();
                 if(listClusterModel.getStatus()==1){
 
-                    List<ClusterModel> listCluster = listClusterModel.getClusterModelList();
+                    listCluster = listClusterModel.getClusterModelList();
                     ClusterAdapter clusterAdapter = new ClusterAdapter(getActivity(),listCluster);
 
                     recyclerView.setAdapter(clusterAdapter);
-                    dismissProgressDialog();
+                    progressDialog.dismiss();
                 }else{
-                   dismissProgressDialog();
+                    progressDialog.dismiss();
                 }
 
             }
@@ -171,7 +184,7 @@ public class ClusterFragment extends BaseFragment {
             public void onFailure(Call<ClusterList> call, Throwable t) {
 
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-               dismissProgressDialog();
+                progressDialog.dismiss();
 
 
             }

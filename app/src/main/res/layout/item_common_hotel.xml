@@ -38,9 +38,11 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="100dp"
-            android:layout_height="70dp"
+            android:layout_height="90dp"
             android:layout_gravity="center"
+            android:adjustViewBounds="true"
             android:layout_marginLeft="1dp"
+
 
 
 
@@ -53,7 +55,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_large"
             android:textStyle="normal"
             android:typeface="sans"
             android:id="@+id/tv_text"

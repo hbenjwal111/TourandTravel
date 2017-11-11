@@ -1,22 +1,36 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
+import com.tourandtravel.activity.CommonBaseActivity;
 import com.tourandtravel.adapter.ActivitiesAdapter;
-import com.tourandtravel.utils.Constant;
+import com.tourandtravel.api.APIService;
+import com.tourandtravel.api.ApiUtils;
+import com.tourandtravel.model.ActivitiesList;
+import com.tourandtravel.model.ActivitiesModel;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -27,29 +41,22 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class ActivitiesFragment  extends BaseFragment {
 
 
+    List<ActivitiesModel >activitiesModelList;
+
     private RecyclerView recyclerView;
-    private List<Constant> cartList;
-    private ActivitiesAdapter mAdapter;
-
-
-    public static final String[] titles = new String[] { "jeep",
-            "mountin", "trek", "yog"/*,"Chakrata","Kausani"," Chamoli","Dehradun","Dhanaulti","Haridwar",
-
-    "HemkundShahib","Karanprayag"*/};
-
-    public static final String[] descriptions = new String[] {
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant", "Citrus Fruit",
-            "Mixed Fruits","kkkkkkkkkkkk",",,,,,,hhhhhhh","jjjjj","hhhhhhhhhhhhhhhhhhh","hhhhhhhhhhhh","gggggggg" };
-
-    public static final Integer[] images = { R.drawable.jeep,
-            R.drawable.mountion, R.drawable.trek, R.drawable.yog,R.drawable.chkrt,R.drawable.ksuni
-            ,R.drawable.chmoli,R.drawable.dehrdun,R.drawable.dhnulti,R.drawable.hridwr,R.drawable.hemkund,};
-
-
+    private APIService mAPIService;
 
 
     private FragmentManager fragmentManager;
+
+
+   String name,image,about;
+
+    private ProgressDialog progressDialog;
+
+
+
+
 
 
     public  ActivitiesFragment(){
@@ -62,17 +69,17 @@ public class ActivitiesFragment  extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_activities, parent, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
+
+        mAPIService = ApiUtils.getAPIService();
+
+
+
+
         setHasOptionsMenu(true);
 
-        cartList = new ArrayList<Constant>();
-        for (int i = 0; i < titles.length; i++) {
-            Constant item = new Constant(images[i], titles[i], descriptions[i]);
-            cartList.add(item);
-        }
 
-       /* cartList = new ArrayList<>();*/
 
-        mAdapter = new ActivitiesAdapter(getActivity(), cartList);
+
 
 
 
@@ -83,15 +90,109 @@ public class ActivitiesFragment  extends BaseFragment {
 
 
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
+
+
+
+
+        recyclerView.addOnItemTouchListener(new ActivitiesFragment.RecyclerTouchListener(getActivity(), recyclerView, new ActivitiesFragment.ClickListener() {
+
+
+
+            @Override
+            public void onClick(View view, int position) {
+
+
+                ActivitiesModel selectedItemData = activitiesModelList.get(position);
+
+
+                Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
+                commonActivity.putExtra("flowType", CommonBaseActivity.CHECK_IN_NAV);
+                commonActivity.putExtra("about", selectedItemData.getAbout());
+                commonActivity.putExtra("image", selectedItemData.getImage());
+                commonActivity.putExtra("name", selectedItemData.getName());
+
+                commonActivity.putExtra("activity_id", selectedItemData.getActivity_id()+"");
+
+                startActivity(commonActivity);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+
+
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+
+        }));
+        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+
+
+
+      getActivityList();
+
+
+
+
         return rootView;
+
+
+
+
+
     }
 
-    @Override
+
+    private void getActivityList() {
+
+        if (Utils.isNetworkConnected(getActivity(), true, R.style.AppCompatAlertDialogStyle)) {
+            progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
+
+        mAPIService.getActivityList(name, about, image).enqueue(new Callback<ActivitiesList>() {
+            @Override
+            public void onResponse(Call<ActivitiesList> call, Response<ActivitiesList> response) {
+
+
+                ActivitiesList listClusterModel = response.body();
+                if (listClusterModel.getStatus() == 1) {
+
+                    activitiesModelList = listClusterModel.getActivitiesModelList();
+                    ActivitiesAdapter clusterAdapter = new ActivitiesAdapter(getActivity(), activitiesModelList);
+
+                    recyclerView.setAdapter(clusterAdapter);
+                    progressDialog.dismiss();
+                } else {
+                    progressDialog.dismiss();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ActivitiesList> call, Throwable t) {
+
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
+
+            }
+        });
+
+    }
+
+
+
+        @Override
     public void setTAG(String TAG) {
 
     }
-
 
     @Override
     public void onClick(View v) {
@@ -102,5 +203,70 @@ public class ActivitiesFragment  extends BaseFragment {
     public void onWindowFocusChanged(boolean hasFocus) {
 
     }
+
+
+    public interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
+    }
+
+    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private ActivitiesFragment.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ActivitiesFragment.ClickListener clickListener) {
+            this.clickListener = clickListener;
+
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child));
+
+
+
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
+
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
+    }
+
+
+
+
+
 }
+
+
+
+
 

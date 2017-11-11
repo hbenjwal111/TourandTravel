@@ -18,6 +18,7 @@ public class CommonHotelModel {
     @Expose
     private Integer hotel_id;
 
+
     @SerializedName("name")
     @Expose
 
@@ -35,18 +36,17 @@ public class CommonHotelModel {
 
 
 
-
     public  CommonHotelModel(){
 
 
     }
 
-    public CommonHotelModel(int cluster_id/*,int hotel_id, String hotel_image, String name,String district*/) {
+    public CommonHotelModel(int cluster_id, String name, String district,String hotel_image,int hotel_id) {
         this.cluster_id = cluster_id;
-   this.hotel_id = hotel_id;
-        this.hotel_image =hotel_image;
-        this.name=name;
+        this.name =name;
         this.district=district;
+        this.hotel_image=hotel_image;
+        this.hotel_id = hotel_id;
 
 
     }
@@ -60,13 +60,15 @@ public class CommonHotelModel {
         this.cluster_id = cluster_id;
     }
 
-   public Integer getHotel_id() {
+    public Integer getHotelId(){
         return hotel_id;
     }
 
-    public void setHotel_id(Integer hotel_id) {
+    public void setHotelId(Integer hotel_id){
         this.hotel_id = hotel_id;
     }
+
+
 
     public String getName(){
         return name;
@@ -87,16 +89,15 @@ public class CommonHotelModel {
     }
 
 
-    public String getHotel_image(){
+    public String getHotel_Image(){
 
         return hotel_image;
     }
 
-    public void setHotel_image(String hotel_image){
+    public void setHotel_Image(String hotel_image){
 
         this.hotel_image = hotel_image;
     }
-
 
 
 
