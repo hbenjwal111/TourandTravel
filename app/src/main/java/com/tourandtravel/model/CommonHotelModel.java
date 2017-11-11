@@ -10,13 +10,13 @@ import com.google.gson.annotations.SerializedName;
 public class CommonHotelModel {
 
 
-    @SerializedName("cluster_id")
+   /* @SerializedName("cluster_id")
     @Expose
-    private Integer cluster_id;
+    private Integer cluster_id;*/
 
     @SerializedName("hotel_id")
     @Expose
-    private Integer hotel_id;
+    private String hotel_id;
 
 
     @SerializedName("name")
@@ -41,9 +41,14 @@ public class CommonHotelModel {
 
     }
 
-    public CommonHotelModel(int cluster_id, String name, String district,String hotel_image,int hotel_id) {
-        this.cluster_id = cluster_id;
-        this.name =name;
+
+
+    public CommonHotelModel(String hotel_id, String hotel_image, String name,String district) {
+       // this.cluster_id = cluster_id;
+       this.hotel_id = hotel_id;
+        this.hotel_image =hotel_image;
+        this.name=name;
+
         this.district=district;
         this.hotel_image=hotel_image;
         this.hotel_id = hotel_id;
@@ -52,19 +57,21 @@ public class CommonHotelModel {
     }
 
 
-    public Integer getClusterId() {
+   /* public Integer getClusterId() {
         return cluster_id;
     }
 
     public void setClusterId(Integer cluster_id) {
         this.cluster_id = cluster_id;
-    }
+    }*/
 
-    public Integer getHotelId(){
+    public String getHotelId(){
         return hotel_id;
     }
 
-    public void setHotelId(Integer hotel_id){
+
+
+    public void setHotel_id(String hotel_id) {
         this.hotel_id = hotel_id;
     }
 

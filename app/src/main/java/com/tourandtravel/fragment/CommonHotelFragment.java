@@ -30,6 +30,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.http.HEAD;
 import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -54,9 +55,13 @@ public class CommonHotelFragment  extends BaseFragment {
 
     Integer cluster_id;
 
-    String clus_id, hotel_id, name, district, hotel_image;
+
+    String  hotel_id, name, district, hotel_image;
 
     private ProgressDialog progressDialog;
+
+    String clus_id;
+
 
 
     private FragmentManager fragmentManager;
@@ -68,10 +73,7 @@ public class CommonHotelFragment  extends BaseFragment {
         // Defines the xml file for the fragment
         View rootView = inflater.inflate(R.layout.fragment_common_hotel, parent, false);
 
-
-        clus_id = getActivity().getIntent().getExtras().getString("clus_id");
-
-
+         clus_id = getActivity().getIntent().getExtras().getString("clus_id");
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view1);
 
@@ -141,6 +143,7 @@ public class CommonHotelFragment  extends BaseFragment {
 
 
         mAPIService.getHotelList(clus_id,name, district, hotel_image,hotel_id).enqueue(new Callback<HotelList>() {
+
             @Override
             public void onResponse(Call<HotelList> call, retrofit2.Response<HotelList> response) {
 

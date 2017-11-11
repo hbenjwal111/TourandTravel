@@ -124,6 +124,7 @@ break;
 
                 getmActionBar().setTitle("About Cluster");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
+
             replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
                 Commonfragment selectAddon = new Commonfragment();
                 Bundle bundle = new Bundle();
@@ -141,19 +142,27 @@ break;
 */
 
                 selectAddon.setArguments(bundle);
+
+               //replaceView(R.id.fullscreen_content_controls, new Commonfragment(),true,true);
+
+
+
+                replaceView(R.id.fullscreen_content_controls,selectAddon,true,true);
+
                 break;
 
             case HOTEL:
 
                 getmActionBar().setTitle("Hotels");
                 getmActionBar().setDisplayHomeAsUpEnabled(true);
-                replaceView(R.id.fullscreen_content_controls, new CommonHotelFragment(),true,true);
 
                 CommonHotelFragment hotelsFragment = new CommonHotelFragment();
                 Bundle hotelBundle = new Bundle();
 
-                hotelBundle.putString("cluster_id",getIntent().getExtras().getString("cluster_id"));
+                hotelBundle.putString("clus_id",getIntent().getExtras().getString("clus_id"));
                 hotelsFragment.setArguments(hotelBundle);
+
+                replaceView(R.id.fullscreen_content_controls, hotelsFragment,true,true);
 
 
 

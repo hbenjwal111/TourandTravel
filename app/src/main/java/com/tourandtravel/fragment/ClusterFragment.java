@@ -30,6 +30,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.HEAD;
 import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -103,7 +104,10 @@ public class ClusterFragment extends BaseFragment {
             public void onClick(View view, int position) {
 
 
+
                 ClusterModel selectedItemData = listCluster.get(position);
+
+
 
 
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
