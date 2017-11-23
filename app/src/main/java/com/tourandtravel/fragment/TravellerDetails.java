@@ -1,14 +1,18 @@
 package com.tourandtravel.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.extect.appbase.BaseFragment;
 import com.tourandtravel.R;
+import com.tourandtravel.api.APIService;
 import com.tourandtravel.payumobile.PayUMainActivity;
 
 /**
@@ -17,9 +21,17 @@ import com.tourandtravel.payumobile.PayUMainActivity;
 
 public class TravellerDetails extends BaseFragment {
 
+    private APIService mAPIService;
+    private TextInputLayout nameTitle, emailTitle, phoneTitle;
+    private EditText nameEdt, emailEdt,  phoneEdt;
+
+    private ProgressDialog progressDialog;
+
+
     private TextView mContinue;
 
     public TravellerDetails(){
+
 
 
     }

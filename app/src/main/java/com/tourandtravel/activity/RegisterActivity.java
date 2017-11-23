@@ -135,7 +135,9 @@ public class RegisterActivity extends BaseActivity {
                 else{
 
 
-                           sendRegister(emailEdt.getText().toString(),passEdt.getText().toString(),nameEdt.getText().toString(),usernameEdt.getText().toString(),phoneEdt.getText().toString());
+                          // sendRegister(emailEdt.getText().toString(),passEdt.getText().toString(),nameEdt.getText().toString(),usernameEdt.getText().toString(),phoneEdt.getText().toString());
+
+                           sendRegister(nameEdt.getText().toString(),emailEdt.getText().toString(),passEdt.getText().toString(),phoneEdt.getText().toString(),usernameEdt.getText().toString());
 
 
                     }
@@ -165,7 +167,7 @@ public class RegisterActivity extends BaseActivity {
             progressDialog.setMessage("Loading...");
             progressDialog.show();
         }
-        mAPIService.registerPost(name, password, email, username, phone).enqueue(new Callback<CustomerRegisterModel>() {
+        mAPIService.registerPost(username, password, name, email, phone).enqueue(new Callback<CustomerRegisterModel>() {
             @Override
             public void onResponse(Call<CustomerRegisterModel> call, Response<CustomerRegisterModel> response) {
                progressDialog.dismiss();

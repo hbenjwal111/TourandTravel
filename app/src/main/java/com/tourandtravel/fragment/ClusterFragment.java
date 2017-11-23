@@ -30,7 +30,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.HEAD;
 import utils.Utils;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -177,9 +176,11 @@ public class ClusterFragment extends BaseFragment {
                     ClusterAdapter clusterAdapter = new ClusterAdapter(getActivity(),listCluster);
 
                     recyclerView.setAdapter(clusterAdapter);
+
                     progressDialog.dismiss();
+
                 }else{
-                    progressDialog.dismiss();
+                   /* progressDialog.dismiss();*/
                 }
 
             }

@@ -166,8 +166,6 @@ public class Commonfragment extends BaseFragment {
 
                     recyclerView.setAdapter(commonAdapter);
                    progressDialog.dismiss();
-                }else{
-                    progressDialog.dismiss();
                 }
 
             }

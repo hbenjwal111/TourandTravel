@@ -57,13 +57,14 @@
                     android:layout_height="wrap_content"
 
 
-                    android:orientation="horizontal"
+
                     >
 
 
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="100dp"
+                    android:src="@drawable/imagesss"
                     android:layout_height="70dp"
                     android:layout_gravity="left|center_horizontal|center_vertical"
                     android:layout_marginLeft="10dp"
@@ -78,14 +79,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_medium"
+                    android:textSize="@dimen/dimen_20sp"
                     android:textStyle="normal"
                     android:typeface="sans"
                     android:id="@+id/tv_text"
                     android:layout_toRightOf="@+id/image"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="25dp"
                     />
                 </RelativeLayout>
 
@@ -163,7 +164,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="false"
-                            android:text="10\0\00"
+                            android:text=""
                             android:editable="false"
                             android:inputType="date"
 
@@ -182,7 +183,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="false"
-                            android:text="10\0\0\0"
+                            android:text=""
                             android:inputType="date"
                             android:editable="false"
 
@@ -223,10 +224,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollHorizontally="false"
-                        android:text="preium room"
+                        android:text=""
                         android:textSize="@dimen/text_large"
                         android:textColor="@color/black"
-                        android:textStyle="normal"
+                        android:textStyle="bold"
                         android:typeface="sans"
                         android:layout_marginLeft="@dimen/dimen_15dp"
 
@@ -247,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollHorizontally="false"
-                        android:text="2 room"
+                        android:text=""
                         android:textSize="@dimen/text_medium"
                         android:textColor="@color/cardview_dark_background"
                         android:textStyle="normal"
@@ -260,12 +261,27 @@
                         android:layout_weight="1" />
 
                     <TextView
+                        android:id="@+id/numberOfRoom"
+                       android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="45sp"
+                        android:text="Room"
+                        android:typeface="sans"
+
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="normal"
+
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_below="@+id/check"/>
+
+                    <TextView
                         android:id="@+id/ru"
                         android:layout_below="@+id/ruu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollHorizontally="false"
-                        android:text="2 guest"
+                        android:text=""
                         android:layout_marginLeft="@dimen/dimen_20dp"
                         android:textSize="@dimen/text_medium"
                         android:textColor="@color/cardview_dark_background"
@@ -277,6 +293,21 @@
 
                         android:gravity="left|center_horizontal|center_vertical"
                         android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/numberOfPerson"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="45sp"
+                        android:text="Person"
+                        android:typeface="sans"
+
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textStyle="normal"
+
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_below="@+id/ruu"/>
 
 
 
@@ -363,7 +394,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="false"
-                            android:text="2000"
+                            android:text=""
                             android:layout_marginBottom="@dimen/dimen_7dp"
 
                             android:textSize="@dimen/text_large"
@@ -429,7 +460,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="false"
-                            android:text="2000"
+                            android:text=""
                             android:textSize="@dimen/text_large"
                             android:textColor="@color/black"
                             android:textStyle="normal"
@@ -490,7 +521,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="false"
-                            android:text="4000"
+                            android:text=""
                             android:textSize="@dimen/text_large"
                             android:textColor="@color/black"
                             android:textStyle="bold"

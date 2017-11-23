@@ -37,6 +37,7 @@ public class LeisureAdapter extends RecyclerView.Adapter<LeisureAdapter.MyViewHo
         private TextView mType;
         private TextView mPrice;
         private TextView mBook;
+        private TextView mLeisure;
 
         public ImageView mImageView;
 
@@ -48,6 +49,7 @@ public class LeisureAdapter extends RecyclerView.Adapter<LeisureAdapter.MyViewHo
             mTitle = (TextView) v.findViewById(R.id.tv_text1);
             mType = (TextView) v.findViewById(R.id.tv_text2);
             mPrice = (TextView) v.findViewById(R.id.tv_text3);
+            mLeisure= (TextView)v.findViewById(R.id.tv_textprime);
             mBook = (TextView) v.findViewById(R.id.choose);
             mImageView = (ImageView) v.findViewById(R.id.image);
 
@@ -86,7 +88,13 @@ public class LeisureAdapter extends RecyclerView.Adapter<LeisureAdapter.MyViewHo
 
         holder.mTitle.setText(constant.getHotel_name());
 
-        holder.mPrice.setText(constant.getDlx());
+        holder.mPrice.setText(constant.getPrice());
+
+        holder.mTime.setText(constant.getLeisure_time_from());
+
+        holder.mLeisure.setText(constant.getLeisure_time_to());
+
+        holder.mType.setText(constant.getType());
 
     }
 

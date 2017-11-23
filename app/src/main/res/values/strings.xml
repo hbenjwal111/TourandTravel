@@ -11,7 +11,8 @@
     <string name="nav_attendance">Feedback</string>
     <string name="nav_time">LogOut</string>
     <string name="new_tab">Where You want to go</string>
-    <string name="facebook_app_id">291432011352323</string>
+    <string name="facebook_app_id">148552399100547</string>
+    <string name="fb_login_protocol_scheme">fb148552399100547</string>
 
 
     <string name="next">NEXT</string>
@@ -39,6 +40,7 @@ Learning Travel Continuum as devised by Richie revolves around the following thr
 Archaeological evidence supports the existence of humans in the region since prehistoric times. The region formed a part of the Kuru and the Panchal kingdoms (mahajanpads) during the Vedic age of Ancient India. Among the first major dynasties of Kumaon were the Kunindas in the 2nd century BCE who practised an early form of Shaivism. Ashokan edicts at Kalsi show the early presence of Buddhism in this region. During the medieval period, the region was consolidated under the Kumaon Kingdom and Garhwal Kingdom. In 1816, most of modern Uttarakhand was ceded to the British as part of the Treaty of Sugauli. Although the erstwhile hill kingdoms of Garhwal and Kumaon were traditional rivals, the proximity of different neighboring ethnic groups and the inseparable and complementary nature of their geography, economy, culture, language, and traditions created strong bonds between the two regions which further strengthened during the Uttarakhand movement for statehood in the 1990s.
 The natives of the state are generally called Uttarakhandi, or more specifically either Garhwali or Kumaoni by their region of origin. According to the 2011 Census of India, Uttarakhand has a population of 10,086,292, making it the 19th most populous state in India.
 </string>
+    <string name="forget">Forget Password </string>
 
 
 </resources>

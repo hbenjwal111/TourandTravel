@@ -181,8 +181,7 @@ break;
                 RoomTypeFragment roomTypeFragment = new RoomTypeFragment();
 
                  Bundle roomBundle = new Bundle();
-
-                roomBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+                 roomBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
 
                   roomTypeFragment.setArguments(roomBundle);
 
@@ -205,8 +204,29 @@ break;
                BookFragment bookFragment = new BookFragment();
 
                 Bundle bookBundle = new Bundle();
+               // String hotel_id1 = getIntent().getExtras().getString("hotel_id");
+/*
+                String hotel_name= getIntent().getExtras().getString("hotel_name");
+*/
 
-                bookBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+              bookBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+              bookBundle.putString("hotel_name",getIntent().getExtras().getString("hotel_name"));
+
+                bookBundle.putString("hotel_image",getIntent().getExtras().getString("hotel_image"));
+
+                bookBundle.putString("price",getIntent().getExtras().getString("price"));
+
+                bookBundle.putString("type",getIntent().getExtras().getString("type"));
+                bookBundle.putString("numberRoom",getIntent().getExtras().getString("numberRoom")+"");
+                bookBundle.putString("numberPerson",getIntent().getExtras().getString("numberPerson")+"");
+                bookBundle.putString("checkOutdate",getIntent().getExtras().getString("checkOutDate"));
+                bookBundle.putString("checkIndate",getIntent().getExtras().getString("checkInDate")+"");
+
+
+
+
+
+
 
                 bookFragment.setArguments(bookBundle);
 
@@ -223,6 +243,39 @@ break;
 
 
                 replaceView(R.id.fullscreen_content_controls, new ReviewBooking(),true,true);
+
+                ReviewBooking review = new ReviewBooking();
+
+                Bundle reviewBundle = new Bundle();
+                // String hotel_id1 = getIntent().getExtras().getString("hotel_id");
+/*
+                String hotel_name= getIntent().getExtras().getString("hotel_name");
+*/
+
+                reviewBundle.putString("hotel_id",getIntent().getExtras().getString("hotel_id"));
+                reviewBundle.putString("hotel_name",getIntent().getExtras().getString("hotel_name"));
+
+                reviewBundle.putString("hotel_image",getIntent().getExtras().getString("hotel_image"));
+
+                reviewBundle.putString("price",getIntent().getExtras().getString("price"));
+
+                reviewBundle.putString("type",getIntent().getExtras().getString("type"));
+
+               reviewBundle.putString("numberRoom",getIntent().getExtras().getString("numberRoom"));
+
+                reviewBundle.putString("numberPerson",getIntent().getExtras().getString("numberPerson"));
+
+                reviewBundle.putString("checkOutDate",getIntent().getExtras().getString("checkOutdate"));
+
+                reviewBundle.putString("checkInDate",getIntent().getExtras().getString("checkInDate"));
+
+
+
+
+
+
+                review.setArguments(reviewBundle)
+                ;
 
 
 

@@ -48,7 +48,7 @@ public class PrimeFragment  extends BaseFragment {
 
     private APIService mAPIService;
 
-    String hotel_id,hotel_name,hotel_image;
+    String hotel_id,hotel_name,hotel_image,price;
 
 
 
@@ -64,6 +64,15 @@ public class PrimeFragment  extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_prim, parent, false);
 
         hotel_id = getActivity().getIntent().getExtras().getString("hotel_id");
+
+        hotel_name = getActivity().getIntent().getExtras().getString("hotel_name");
+
+        price = getActivity().getIntent().getExtras().getString("price");
+
+/*
+        name = getActivity().getIntent().getExtras().getString("hotel_name");
+*/
+
 
 
 
@@ -94,10 +103,32 @@ public class PrimeFragment  extends BaseFragment {
             @Override
             public void onClick(View view, int position) {
 
+                PrimeTimeModel selectedItemPosition = primeTimeModels.get(position);
+
+
+
                 Intent commonActivity = new Intent(getActivity(),CommonBaseActivity.class);
                 commonActivity.putExtra("flowType", CommonBaseActivity.BOOK);
 
-                commonActivity.putExtra("hotel_id",hotel_id);
+                commonActivity.putExtra("hotel_name", selectedItemPosition.getHotel_name());
+                commonActivity.putExtra("type", selectedItemPosition.getType());
+                commonActivity.putExtra("hotel_image", selectedItemPosition.getHotel_image());
+                commonActivity.putExtra("price",selectedItemPosition.getPrice());
+                commonActivity.putExtra("hotel_id", selectedItemPosition.getHotel_id() + "");
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //  commonActivity.putExtra("name",name);
 
 
 
@@ -132,7 +163,7 @@ public class PrimeFragment  extends BaseFragment {
             progressDialog.show();
         }
 
-        mAPIService.getPriceList(Integer.parseInt(hotel_id),hotel_name,hotel_image).enqueue(new Callback<PrimeTimeList>() {
+        mAPIService.getPriceList(Integer.parseInt(hotel_id)).enqueue(new Callback<PrimeTimeList>() {
             @Override
             public void onResponse(Call<PrimeTimeList> call, Response<PrimeTimeList> response) {
 

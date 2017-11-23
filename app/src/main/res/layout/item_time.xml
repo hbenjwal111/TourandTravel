@@ -49,13 +49,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=""
+            android:text="hhbjk"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_large"
             android:textStyle="normal"
             android:typeface="sans"
             android:id="@+id/tv_text"
             android:layout_toRightOf="@+id/image"
+            android:layout_marginLeft="12dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="to"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:id="@+id/tv_to"
+            android:layout_toRightOf="@+id/tv_text"
+            android:layout_marginLeft="12dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="gjhbkjbkj"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_large"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:id="@+id/tv_textprime"
+            android:layout_toRightOf="@+id/tv_to"
             android:layout_marginLeft="12dp"
             />
 
@@ -71,7 +101,7 @@
             android:layout_toRightOf="@+id/image"
             android:typeface="sans"
             android:id="@+id/tv_text1"
-            android:layout_below="@+id/tv_text"
+            android:layout_below="@+id/tv_textprime"
             android:layout_marginLeft="12dp"
             />
 
@@ -82,8 +112,8 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="normal"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
             android:layout_toRightOf="@+id/image"
             android:typeface="sans"
             android:id="@+id/tv_text2"
@@ -149,8 +179,8 @@
         android:layout_gravity="right"
 
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_small"
-        android:textStyle="normal"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold"
         android:typeface="sans"
         android:id="@+id/tv_text3"
         android:layout_marginRight="@dimen/dimen_10dp"

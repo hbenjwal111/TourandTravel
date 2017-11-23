@@ -76,9 +76,8 @@ public interface APIService {
     @FormUrlEncoded
     Call<PrimeTimeList> getPriceList(
 
-            @Field("hotel_id") int hotel_id,
-            @Field("hotel_image") String hotel_image,
-            @Field("name") String hotel_name);
+            @Field("hotel_id") int hotel_id);
+
 
 
 
@@ -96,6 +95,11 @@ public interface APIService {
             @Field("name") String name,
             @Field("about") String about,
             @Field("image") String image);
+
+
+
+
+
 
 
 }

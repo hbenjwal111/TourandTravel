@@ -125,6 +125,7 @@
                     android:gravity="right"
                     android:textSize="@dimen/text_small"
                     android:layout_marginRight="35dp"
+                    android:id="@+id/forget"
 
 
 

@@ -37,6 +37,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
         private TextView mType;
         private TextView mPrice;
         private TextView mBook;
+        private TextView mPrime;
 
         public ImageView mImageView;
 
@@ -48,6 +49,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
             mTitle = (TextView) v.findViewById(R.id.tv_text1);
             mType = (TextView) v.findViewById(R.id.tv_text2);
             mPrice = (TextView) v.findViewById(R.id.tv_text3);
+            mPrime = (TextView)v.findViewById(R.id.tv_textprime);
             mBook = (TextView) v.findViewById(R.id.choose);
             mImageView = (ImageView) v.findViewById(R.id.image);
 
@@ -86,7 +88,17 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.MyViewHolder> 
 
         holder.mTitle.setText(constant.getHotel_name());
 
-        holder.mPrice.setText(constant.getDlx());
+        holder.mPrice.setText(constant.getPrice());
+
+        holder.mTime.setText(constant.getPrime_time_from());
+
+        holder.mPrime.setText(constant.getPrime_time_to());
+
+        holder.mType.setText(constant.getType());
+
+
+
+
 /*
         holder.mType.setText(constant.getHotel_prize());
 */

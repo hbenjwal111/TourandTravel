@@ -1,3 +1,4 @@
+
 package com.tourandtravel.fragment;
 
 import android.Manifest;
@@ -10,11 +11,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -25,14 +33,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.tourandtravel.R;
-import com.tourandtravel.utils.LatLangBeans;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static com.tourandtravel.R.id.map;
 
@@ -41,34 +49,62 @@ import static com.tourandtravel.R.id.map;
  */
 
 
+
 public class MapFragment extends SupportMapFragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private GoogleMap mMap;
-    private ArrayList<LatLng> listLatLng;
+
     private RelativeLayout rlMapLayout;
-    HashMap<Marker,LatLangBeans> hashMapMarker = new HashMap<Marker,LatLangBeans>();
+
+    // Google Map
+
+    private GoogleMap googleMap;
+    private Double Latitude = 0.00;
+    private Double Longitude = 0.00;
+
+
     MapView mapView;
 
     GoogleApiClient mGoogleApiClient;
+
+
+
+
+
+    MapFragment mapFragment;
+    GoogleMap gMap;
+    MarkerOptions markerOptions = new MarkerOptions();
+    CameraPosition cameraPosition;
+    LatLng  latLng;
+
+
+    public static final String ID = "cluster_id";
+
+    public static final String LAT = "clus_location_lat";
+    public static final String LNG = "clus_location_lon";
+
+    private String url = "http://maestrotravel.co.in/api/maestrotravel_cluster_location.php";
+
+    String tag_json_obj = "cluster_location";
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View root = inflater.inflate(R.layout.fragment_map, null, false);
-       /* setData();*/
+
+
 
         initilizeMap();
 
+
+
+
         return root;
     }
-
-
-
-
-
-
-
-
 
     private void initilizeMap() {
         SupportMapFragment mSupportMapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(map);
@@ -80,8 +116,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         }
         if (mSupportMapFragment != null) {
             mSupportMapFragment.getMapAsync(this);
-           /* if (googleMap != null)
-                googleMap.addMarker(new MarkerOptions().position(new LatLng(10.1253,10.5868)));*/
+
+
         }
 
 
@@ -101,8 +137,70 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         mGoogleApiClient.connect();
 
 
+        getMarkers();
+
+
 
     }
+
+
+
+
+    private void addMarker(LatLng location) {
+        mMap.clear();
+
+        //To hold location
+
+        //To create marker in map
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        //adding marker to the map
+        mMap.addMarker(markerOptions);
+
+        //opening position with some zoom level in the map
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));
+
+
+
+    }
+
+    private void getMarkers() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e("Response: ", response.toString());
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    String getObject = jObj.getString("cluster_location");
+                    JSONArray jsonArray = new JSONArray(getObject);
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        latLng = new LatLng(Double.parseDouble(jsonObject.getString(LAT)), Double.parseDouble(jsonObject.getString(LNG)));
+
+                        // Menambah data marker untuk di tampilkan ke google map
+                        addMarker(latLng);
+                    }
+
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error: ", error.getMessage());
+                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Volley.newRequestQueue(getActivity()).add(strReq);    }
 
 
 
@@ -139,10 +237,11 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
     }
 
-    @Override
+
+ @Override
     public void onLocationChanged(Location location) {
 
-        //To clear map data
+     /*   //To clear map data
         mMap.clear();
 
         //To hold location
@@ -200,8 +299,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                 .title("Lansdown")
                 .position(new LatLng(29.8433511,78.6711537)));
 
-
+*/
     }
+
 
 
 
@@ -211,5 +311,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     }
 
 
+
+
+
+
 }
+
 

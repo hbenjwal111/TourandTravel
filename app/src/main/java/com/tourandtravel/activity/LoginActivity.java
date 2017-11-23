@@ -16,6 +16,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -61,17 +62,16 @@ public class LoginActivity extends BaseActivity {
         mAPIService = ApiUtils.getAPIService();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
         setContentView(R.layout.activity_login);
 
-        loginButton = (LoginButton)findViewById(R.id.fbbutton);
-
         callbackManager = CallbackManager.Factory.create();
-
+        LoginButton loginButton = (LoginButton) findViewById(R.id.fbbutton);
+        loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(intent);
                 LoginManager.getInstance().logOut();
@@ -95,6 +95,10 @@ public class LoginActivity extends BaseActivity {
 
 
 
+
+
+
+
         PrefManager prefManager = new PrefManager(getApplicationContext());
 
         // make first time launch TRUE
@@ -105,6 +109,7 @@ public class LoginActivity extends BaseActivity {
 
         findViewById(R.id.signUpTv).setOnClickListener(this);
         findViewById(R.id.loginBtn).setOnClickListener(this);
+        findViewById(R.id.forget).setOnClickListener(this);
 
         emailEdt = (EditText) findViewById(R.id.userNameEt);
         passEdt = (EditText) findViewById(R.id.passwordEt);
@@ -125,6 +130,12 @@ public class LoginActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.signUpTv:
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                finish();
+                break;
+
+            case R.id.forget:
+
+                startActivity(new Intent(LoginActivity.this,ForgetPasswordActivity.class));
                 finish();
                 break;
 
@@ -217,6 +228,9 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode,resultCode,data);
+
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 

@@ -25,7 +25,7 @@ public class RoomTypeFragment extends BaseFragment {
     private ViewPager viewPager;
     private FragmentManager fragmentManager;
 
-    String hotel_id;
+    String hotel_id,name,price;
 
 
     public RoomTypeFragment(){
@@ -38,6 +38,10 @@ public class RoomTypeFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_home, parent, false);
 
         hotel_id = getActivity().getIntent().getExtras().getString("hotel_id");
+
+        name = getActivity().getIntent().getExtras().getString("hotel_name");
+
+        price = getActivity().getIntent().getExtras().getString("price");
 
 
 /*
