@@ -171,9 +171,9 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
                 commonActivity.putExtra("hotel_image", hotel_image);
                 commonActivity.putExtra("price", price);
                 commonActivity.putExtra("type", type);
-                commonActivity.putExtra("checkOutDate",String.valueOf(dateFormatter.format(new Date())));
+                commonActivity.putExtra("checkInDate",fromDate.getText().toString());
 
-                commonActivity.putExtra("checkInDate", String.valueOf(dateFormatter.format(new Date())));
+                commonActivity.putExtra("checkOutDate", toDate.getText().toString());
                 commonActivity.putExtra("numberRoom", String.valueOf(numtest));
                 commonActivity.putExtra("numberPerson", String.valueOf(numtestt));
 
@@ -242,7 +242,8 @@ public class BookFragment extends BaseFragment implements View.OnClickListener {
 
             }
 
-        },  newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        },
+                newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
         fromDatePickerDialog.getDatePicker().setMinDate(newCalendar.getTimeInMillis());
         fromDatePickerDialog.setTitle("Checkin Date");
 

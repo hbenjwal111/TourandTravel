@@ -1,22 +1,22 @@
 [
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/000cfb241d657f339d2dbdbfc7816bc9e6d65284/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1b6c45df467d2f02c022fe11ee18a30a7209f26f\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "E:\\TourandTravel\\appbase\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\himanshu\\.android\\build-cache\\1ae9229007e2abb5f4c9f86b9f4965d2e100514b\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "/Users/LuckyRana/Downloads/TourandTravel/appbase/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/LuckyRana/.android/build-cache/64e6fb5bf869b649258b8cb94d0fc2b63aeafe11/output/res/drawable-v21/abc_edit_text_material.xml"
     }
 ]
